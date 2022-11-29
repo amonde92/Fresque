@@ -56,40 +56,40 @@ public class Ellipse extends Forme{
     public void homothetie(int rapport) {
         super.homothetie(rapport);
         center.homothetie(rapport);
-        rayonA.homothetie(rapport);
-        rayonB.homothetie(rapport);
+        abscisse.homothetie(rapport);
+        ordonne.homothetie(rapport);
     }
 
     @Override
     public void translation(int[] vector) {
         super.translation(vector);
         center.translation(vector);
-        rayonA.translation(vector);
-        rayonB.translation(vector);
+        abscisse.translation(vector);
+        ordonne.translation(vector);
     }
 
     @Override
     public void symetrie_centrale() {
         super.symetrie_centrale();
         center.symetrie_centrale();
-        rayonA.symetrie_centrale();
-        rayonB.symetrie_centrale();
+        abscisse.symetrie_centrale();
+        ordonne.symetrie_centrale();
     }
 
     @Override
     public void symetrie_axiale() {
         super.symetrie_axiale();
         center.symetrie_axiale();
-        rayonA.symetrie_axiale();
-        rayonB.symetrie_axiale();
+        abscisse.symetrie_axiale();
+        ordonne.symetrie_axiale();
     }
 
     @Override
     public void rotation() {
         super.rotation();
         center.rotation();
-        rayonA.rotation();
-        rayonB.rotation();
+        abscisse.rotation();
+        ordonne.rotation();
     }
 
     @Override

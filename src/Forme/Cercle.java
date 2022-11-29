@@ -35,14 +35,14 @@ public class Cercle extends Forme {
     public void homothetie(int rapport) {
         super.homothetie(rapport);
         center.homothetie(rapport);
-        ray.homothetie(rapport);
+        R.homothetie(rapport);
     }
 
     @Override
     public void translation(int [] vector) {
         super.translation(vector);
         center.translation(vector);
-        ray.translation(vector);
+        R.translation(vector);
 
     }
 
@@ -50,7 +50,7 @@ public class Cercle extends Forme {
     public void symetrie_axiale() {
         super.symetrie_axiale();
         center.symetrie_axiale();
-        ray.symetrie_axiale();
+        R.symetrie_axiale();
     }
 
     @Override
@@ -64,7 +64,7 @@ public class Cercle extends Forme {
     public void symetrie_centrale() {
         super.symetrie_centrale();
         center.symetrie_centrale();
-        ray.symetrie_centrale();
+        R.symetrie_centrale();
 
     }
 
