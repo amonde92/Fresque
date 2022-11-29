@@ -24,13 +24,13 @@ public class Point extends Forme{
         y=ValTemp;
     }
 
-    public void symétrie_axiale (){
+    public void symetrie_axiale(){
         x=-x;
     }
 
     @Override
-    public void symétrie_centrale() {
-        super.symétrie_centrale();
+    public void symetrie_centrale() {
+        super.symetrie_centrale();
         x=-x;
         y=-y;
     }
@@ -45,5 +45,13 @@ public class Point extends Forme{
         super.homothetie(rapport);
         x*=rapport;
         y*=rapport;
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }

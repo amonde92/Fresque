@@ -44,21 +44,29 @@ public class Ligne extends Forme{
     }
 
     @Override
-    public void symétrie_centrale() {
-        super.symétrie_centrale();
-        a.symétrie_centrale();
-        b.symétrie_centrale();
+    public void symetrie_centrale() {
+        super.symetrie_centrale();
+        a.symetrie_centrale();
+        b.symetrie_centrale();
     }
 
     @Override
-    public void symétrie_axiale() {
-        super.symétrie_axiale();
-        a.symétrie_axiale();
-        b.symétrie_axiale();
+    public void symetrie_axiale() {
+        super.symetrie_axiale();
+        a.symetrie_axiale();
+        b.symetrie_axiale();
     }
 
     public Point getA() {return a;}
     public void setA(Point a) {this.a = a;}
     public Point getB() {return b;}
     public void setB(Point b) {this.b = b;}
+
+    @Override
+    public String toString() {
+        return "Ligne{" +
+                "a=" + a +
+                ", b=" + b +
+                '}';
+    }
 }

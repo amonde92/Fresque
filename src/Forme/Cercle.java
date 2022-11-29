@@ -2,12 +2,14 @@ package Forme;
 
 public class Cercle extends Forme {
     private Point center;
+    private Point R;
     private Ligne ray;
 
 
-    public Cercle(Point c, Ligne r){
+    public Cercle(Point c, Point r){
         this.center = c;
-        this.ray = r;
+        this.R = r;
+        ray = new Ligne(center,R);
     }
 
     public Point getCenter() {return center;}
@@ -16,10 +18,16 @@ public class Cercle extends Forme {
 
     public void setRay(Ligne ray) {this.ray = ray;}
 
-    public double Perimetre(){
+
+    @Override
+    public double Perimetre() {
+        super.Perimetre();
         return (2*Math.PI*this.ray.Distance());
     }
-    public double Aire(){
+
+    @Override
+    public double Aire() {
+        super.Aire();
         return (Math.PI*this.ray.Distance()*this.ray.Distance());
     }
 
@@ -39,10 +47,10 @@ public class Cercle extends Forme {
     }
 
     @Override
-    public void symétrie_axiale() {
-        super.symétrie_axiale();
-        center.symétrie_axiale();
-        ray.symétrie_axiale();
+    public void symetrie_axiale() {
+        super.symetrie_axiale();
+        center.symetrie_axiale();
+        ray.symetrie_axiale();
     }
 
     @Override
@@ -53,10 +61,18 @@ public class Cercle extends Forme {
     }
 
     @Override
-    public void symétrie_centrale() {
-        super.symétrie_centrale();
-        center.symétrie_centrale();
-        ray.symétrie_centrale();
+    public void symetrie_centrale() {
+        super.symetrie_centrale();
+        center.symetrie_centrale();
+        ray.symetrie_centrale();
 
+    }
+
+    @Override
+    public String toString() {
+        return "Cercle{" +
+                "center=" + center +
+                ", ray=" + ray +
+                '}';
     }
 }

@@ -1,7 +1,7 @@
 package Forme;
 
 public abstract class Forme {
-    public void homothetie (int rapport){}
+    public  void homothetie (int rapport){}
 
     public void translation(int [] vector){
         return ;
@@ -11,19 +11,15 @@ public abstract class Forme {
         return ;
     }
 
-    public void symétrie_centrale (){
-        return ;
-    }
-    public void symétrie_axiale(){
-        return ;
-    }
+    public void symetrie_centrale(){}
+    public void symetrie_axiale(){}
 
     public double Aire (){
-        return (double) 1;
+        return  1;
     }
 
     public double Perimetre (){
-        return (double) 1;
+        return  1;
     }
 
 }

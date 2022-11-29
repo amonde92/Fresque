@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Frame extends JFrame {
     public Frame(String a){
@@ -11,6 +12,7 @@ public class Frame extends JFrame {
         setLocationRelativeTo(null);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBackground(Color.cyan);
         // Fenetre visible
         setVisible(true);
     }
