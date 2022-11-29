@@ -16,7 +16,6 @@ public class Polygone extends Forme{
         return somme;
     }
 
-
      @Override
     public double Aire() {
         double aire = 0;
@@ -176,6 +175,31 @@ public class Polygone extends Forme{
             System.out.println(Cote.get(i).getA().getX() + " X1 , " + Cote.get(i).getA().getY() + "Y1  " + Cote.get(i).getB().getX() + " X2 , " + Cote.get(i).getB().getY() + "Y2 ");
 
         }
+    }
+
+    @Override
+    public void homothetie(int rapport) {
+        super.homothetie(rapport);
+    }
+
+    @Override
+    public void translation(int[] vector) {
+        super.translation(vector);
+    }
+
+    @Override
+    public void symetrie_axiale() {
+        super.symetrie_axiale();
+    }
+
+    @Override
+    public void symetrie_centrale() {
+        super.symetrie_centrale();
+    }
+
+    @Override
+    public void rotation() {
+        super.rotation();
     }
 
     public ArrayList<Ligne> getCote() {
