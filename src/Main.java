@@ -1,6 +1,9 @@
 import Forme.Cercle;
+import Forme.Ellipse;
 import Forme.Point;
-import Vue.Frame;
+
+import javax.swing.*;
+import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -49,13 +52,9 @@ public class Main {
         System.out.println("Rotation :" +c);
 
 
-
-
-
-
-
-
-        Vue.Frame fen = new Frame("Fresque");
+        Frame fen = new Frame("Fresque");
+        Panel pan = new Panel();
+        fen.add(pan);
 
     }
 }

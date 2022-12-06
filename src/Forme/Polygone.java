@@ -36,7 +36,9 @@ public class Polygone extends Forme{
                 Ligne A = Pclone.get(i);//on prend le 1er côté
                 Ligne B = Pclone.get(i + 1);//on prend le 2eme côté
                 Ligne C = new Ligne(new Point(Pclone.get(i).getA().getX(), Pclone.get(i).getA().getY()), new Point(Pclone.get(i + 1).getB().getX(), Pclone.get(i + 1).getB().getY()));//on créé un côté qui relie A et B
-                if (Get_intercection_X(C,Pclone)%2!=0){//on vérifie si combien de fois il coupe le polyone
+                if (Get_intercection(C,Pclone)%2==0){//on vérifie si combien de fois il coupe le polyone
+                    i++;// on incrémente l'indice et on recommence
+                }else {// si c'est pas bien
                     aire = aire + Aire_triangle(A, B, C);//si c'est impaire on calcule l'aire du triangle
                     if (Pclone.size() >= 2) {// on vérife si on peut supprimé les 2 coté utiliser sans problème
                         Pclone.remove(i);//on enlève le côté
@@ -44,11 +46,8 @@ public class Polygone extends Forme{
                         Pclone.add(i, C);// on rajoute le côté créer par raport à l'indexe de prélèvement
                         i = 0;// remise à 0 de l'indexe
                     }
-                }else {// si c'est pas bien
-                    i++;// on incrémente l'indice et on recommence
+
                 }
-
-
             } else {// si il reste pile 3 côté
                 Ligne A = Pclone.get(i);//on prend le 1er côté
                 Ligne B = Pclone.get(i + 1);//on prend le 2eme côté
@@ -66,7 +65,7 @@ public class Polygone extends Forme{
         return aire; // on retourne l'aire calculé
     }
 
-    public char Get_intercection_X(Ligne C, ArrayList<Ligne> clone) {
+    public char Get_intercection(Ligne C, ArrayList<Ligne> clone) {
         //création de la droite de référence
         int milieuX = (C.getB().getX() - C.getA().getX()) / 2;
         int milieuY = (C.getB().getY() - C.getA().getY()) / 2;
@@ -190,6 +189,10 @@ public class Polygone extends Forme{
     @Override
     public void symetrie_axiale() {
         super.symetrie_axiale();
+        for (int i = 0; i < Cote.size(); i++) {
+            Cote.get(i).getA().setX(-Cote.get(i).getA().getX());
+            Cote.get(i).getB().setX(-Cote.get(i).getB().getX());
+        }
     }
 
     @Override
@@ -200,6 +203,14 @@ public class Polygone extends Forme{
     @Override
     public void rotation() {
         super.rotation();
+        for(int i=0;i<Cote.size();i++){
+            int temp1 = Cote.get(i).getA().getX();
+            Cote.get(i).getA().setX(-Cote.get(i).getA().getY());
+            Cote.get(i).getA().setY(temp1);
+            int temp2 = Cote.get(i).getB().getX();
+            Cote.get(i).getB().setX(-Cote.get(i).getB().getY());
+            Cote.get(i).getB().setY(temp2);
+        }
     }
 
     public ArrayList<Ligne> getCote() {
