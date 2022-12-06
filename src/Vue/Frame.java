@@ -1,9 +1,10 @@
+package Vue;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Frame extends JFrame {
     public Frame(String a){
-
         // Titre
         setTitle(a);
         // taille : 400 pixels largeur  et 100 pixels hauteur
@@ -12,7 +13,7 @@ public class Frame extends JFrame {
         setLocationRelativeTo(null);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBackground(Color.cyan);
+        //setBackground(Color.cyan);
         // Fenetre visible
         setVisible(true);
     }

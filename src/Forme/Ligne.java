@@ -11,9 +11,9 @@ public class Ligne extends Forme{
     }
 
 
-    public double Distance(){
+    public int Distance(){
         try{
-            return Math.sqrt(Math.pow((this.b.getX()-this.a.getX()),2)+Math.pow(this.b.getY()-this.a.getY(),2));
+            return (int) Math.sqrt(Math.pow((this.b.getX()-this.a.getX()),2)+Math.pow(this.b.getY()-this.a.getY(),2));
         }
         catch (ArithmeticException e){
             System.out.println();

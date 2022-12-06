@@ -1,9 +1,6 @@
 import Forme.Cercle;
-import Forme.Ellipse;
 import Forme.Point;
-
-import javax.swing.*;
-import java.awt.*;
+import Vue.Frame;
 
 public class Main {
     public static void main(String[] args) {
@@ -58,9 +55,7 @@ public class Main {
 
 
 
-        Frame fen = new Frame("Fresque");
-        Panel pan = new Panel();
-        fen.add(pan);
+        Vue.Frame fen = new Frame("Fresque");
 
     }
 }
