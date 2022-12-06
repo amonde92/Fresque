@@ -54,8 +54,8 @@ public class Main {
 
 
 
-
-        Vue.Frame fen = new Frame("Fresque");
+        //FDD
+        Frame fen = new Frame("Fresque");
 
     }
 }
