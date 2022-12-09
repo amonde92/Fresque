@@ -4,7 +4,12 @@ import java.util.ArrayList;
 
 public class Polygone extends Forme{
     static final private Point ref = new Point(1000, 2000);
-    final private ArrayList<Ligne> Cote = new ArrayList<>();
+    private ArrayList<Ligne> Cote = new ArrayList<>();
+
+
+     public  Polygone (int [][] coordonne){
+        setCote(coordonne);
+     }
 
     public double Perimetre() {
         double somme = 0;
@@ -124,7 +129,6 @@ public class Polygone extends Forme{
         return (A.Distance() * Hauteur(gamma, B.Distance())) / 2;
     }
 
-
     public double Alpha(Ligne A, Ligne B, Ligne C) {
         double alphaR = 0;
         double test = -0.5 * Math.pow(A.Distance(), 2) + 0.5 * Math.pow(B.Distance(), 2) + 0.5 * Math.pow(C.Distance(), 2) / (B.Distance() * C.Distance());
@@ -168,7 +172,7 @@ public class Polygone extends Forme{
         Cote.add(new Ligne(new Point(tab[(tab.length) - 1][0], tab[(tab.length) - 1][1]), new Point(tab[0][0], tab[0][1])));
     }
 
-    public void Print() {
+ public void Print() {
 
         for (int i = 0; i < (Cote.size()); i++) {
             System.out.println(Cote.get(i).getA().getX() + " X1 , " + Cote.get(i).getA().getY() + "Y1  " + Cote.get(i).getB().getX() + " X2 , " + Cote.get(i).getB().getY() + "Y2 ");
@@ -176,14 +180,26 @@ public class Polygone extends Forme{
         }
     }
 
-    @Override
+        @Override
     public void homothetie(int rapport) {
         super.homothetie(rapport);
+            for (int i = 0; i < Cote.size(); i++) {
+                Cote.get(i).getA().setX(Cote.get(i).getA().getX()*rapport);
+                Cote.get(i).getA().setY(Cote.get(i).getA().getY()*rapport);
+                Cote.get(i).getB().setX(Cote.get(i).getB().getX()*rapport);
+                Cote.get(i).getB().setY(Cote.get(i).getB().getY()*rapport);
+            }
     }
 
     @Override
     public void translation(int[] vector) {
         super.translation(vector);
+        for (int i = 0; i < Cote.size(); i++) {
+            Cote.get(i).getA().setX(Cote.get(i).getA().getX()+vector[0]);
+            Cote.get(i).getA().setY(Cote.get(i).getA().getY()+vector[1]);
+            Cote.get(i).getB().setX(Cote.get(i).getB().getX()+vector[0]);
+            Cote.get(i).getB().setY(Cote.get(i).getB().getY()+vector[1]);
+        }
     }
 
     @Override
@@ -215,5 +231,9 @@ public class Polygone extends Forme{
 
     public ArrayList<Ligne> getCote() {
         return Cote;
+    }
+
+    public void setCote(int[][] coordonne) {
+        addLigne(coordonne);
     }
 }

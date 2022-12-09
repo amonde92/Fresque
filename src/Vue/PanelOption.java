@@ -6,9 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PanelOption extends JPanel implements ActionListener {
-    JButton create = new JButton ("Créer un dessin");
+    JButton create = new JButton ("Créer une Image");
     String[] transfo = {"Transformation","Homothétie","Translation","Rotation","Symétrie Centrale","Symétrie Axiale"};
     JComboBox<String> transformation = new JComboBox<>(transfo);
+
 
     private PanelMere panelMere;
     JButton aire = new JButton ("Aire");
@@ -21,38 +22,39 @@ public class PanelOption extends JPanel implements ActionListener {
         setBackground(Color.BLUE);
         this.panelMere = panelMere;
 
-        GridBagConstraints c = new GridBagConstraints();
+        GridBagConstraints contraint = new GridBagConstraints();
 
 
-        c.anchor = GridBagConstraints.NORTHEAST;
+        contraint.anchor = GridBagConstraints.NORTHEAST;
 
-        c.gridy = 0;
+        contraint.gridy = 0;
 
-        c.gridx = 0;
-        c.insets = new Insets(10,20,10,20);
+        contraint.gridx = 0;
+        contraint.insets = new Insets(10,20,10,20);
 
-        add(create,c);
+        add(create,contraint);
         create.addActionListener(panelMere);
 
-        c.gridx = 1;
+        contraint.gridx = 1;
         transformation.addItemListener(panelMere);
-        add(transformation,c);
+        transformation.setSelectedIndex(0);
+        add(transformation,contraint);
 
 
-        c.gridx = 2;
-        add(aire,c);
+        contraint.gridx = 2;
+        add(aire,contraint);
         aire.addActionListener(this);
 
-        c.gridx = 3;
-        add(display_aire,c);
+        contraint.gridx = 3;
+        add(display_aire,contraint);
         display_aire.setVisible(false);
 
-        c.gridx = 4;
-        add(perimetre,c);
+        contraint.gridx = 4;
+        add(perimetre,contraint);
         perimetre.addActionListener(this);
 
-        c.gridx = 5;
-        add(display_perimetre,c);
+        contraint.gridx = 5;
+        add(display_perimetre,contraint);
         display_perimetre.setVisible(false);
     }
 

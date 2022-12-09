@@ -15,6 +15,8 @@ public class Frame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //setBackground(Color.cyan);
         // Fenetre visible
+        PanelMere panel = new PanelMere(this);
+        add(panel);
         setVisible(true);
     }
 }
