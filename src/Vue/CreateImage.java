@@ -33,21 +33,21 @@ public class CreateImage extends JDialog implements ItemListener {
     }
 
 
-   /* @Override
+    @Override
     public void itemStateChanged(ItemEvent e) {
         if (frame != null) this.remove(frame);
 
-        switch (e.getItem().toString()) {
+        /*switch (e.getItem().toString()) {
             case "Cercle" -> frame =;
             case "Elipse" -> frame =;
             case "Polygone" -> frame =;
             case "Ligne" -> frame =;
 
 
-            System.out.println("ca marche");
-        }
+            System.out.println("ca marche");*/
 
-    }*/
+
+    }
 }
 
 

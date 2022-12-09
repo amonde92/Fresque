@@ -24,9 +24,7 @@ public class Point extends Forme{
         y=ValTemp;
     }
 
-    public void symetrie_axiale(){
-        x=-x;
-    }
+    public void symetrie_axiale(){x=-x;}
 
     @Override
     public void symetrie_centrale() {

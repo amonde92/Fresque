@@ -1,6 +1,6 @@
 package Forme;
 
-public class Cercle extends Forme {
+public class Cercle extends Forme implements Comparable<Cercle> {
     private Point center;
     private Point R;
     private Ligne ray;
@@ -74,5 +74,10 @@ public class Cercle extends Forme {
                 "center=" + center +
                 ", ray=" + ray +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Cercle o) {
+        return 0;
     }
 }

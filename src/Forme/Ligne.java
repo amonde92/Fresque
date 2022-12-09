@@ -1,6 +1,6 @@
 package Forme;
 
-public class Ligne extends Forme{
+public class Ligne extends Forme implements Comparable<Ligne>{
 
     private Point  a;
     private Point b;
@@ -68,5 +68,10 @@ public class Ligne extends Forme{
                 "a=" + a +
                 ", b=" + b +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Ligne o) {
+        return 0;
     }
 }

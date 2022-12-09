@@ -1,6 +1,6 @@
 package Forme;
 
-public class Ellipse extends Forme{
+public class Ellipse extends Forme implements Comparable<Ellipse>{
 
     private Point center;
     private Point abscisse;
@@ -63,7 +63,7 @@ public class Ellipse extends Forme{
     @Override
     public void translation(int[] vector) {
         super.translation(vector);
-        center.translation(vector);
+        //center.translation(vector);
         abscisse.translation(vector);
         ordonne.translation(vector);
     }
@@ -87,21 +87,20 @@ public class Ellipse extends Forme{
     @Override
     public void rotation() {
         super.rotation();
-        center.rotation();
-        abscisse.rotation();
-        ordonne.rotation();
+        rayonA.rotation();
+        rayonB.getB().rotation();
     }
 
     @Override
     public double Perimetre() {
         super.Perimetre();
-        return 2*pi*(float)Math.sqrt(0.5*((float)Math.pow(rayonA.Distance()/2,2)+(float)Math.pow(rayonB.Distance()/2,2)));
+        return pi*(float)Math.sqrt(2*((float)Math.pow(rayonA.Distance(),2)+(float)Math.pow(rayonB.Distance(),2)));
     }
 
     @Override
     public double Aire() {
         super.Aire();
-        return pi* rayonA.Distance()* rayonB.Distance()/4;
+        return pi* rayonA.Distance()* rayonB.Distance();
     }
 
     @Override
@@ -110,9 +109,14 @@ public class Ellipse extends Forme{
                 "center=" + center +
                 ", abscisse=" + abscisse +
                 ", ordonne=" + ordonne +
-                ", rayonA=" + rayonA +
-                ", rayonB=" + rayonB +
+                ", rayonA=" + rayonA.Distance() +
+                ", rayonB=" + rayonB.Distance() +
                 ", pi=" + pi +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Ellipse ellipse) {
+        return 0;
     }
 }

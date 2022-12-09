@@ -2,20 +2,26 @@ package Forme;
 
 import java.util.ArrayList;
 
-public class Polygone extends Forme{
+public class Polygone extends Forme implements Comparable<Polygone>{
     static final private Point ref = new Point(1000, 2000);
     private ArrayList<Ligne> Cote = new ArrayList<>();
 
+    public void setCote(ArrayList<Ligne> cote) {
+        Cote = cote;
+    }
 
-     public  Polygone (int [][] coordonne){
-        setCote(coordonne);
+    public void instanceCote(int[][] coordonne) {
+        addLigne(coordonne);
+    }
+
+    public  Polygone (int [][] coordonne){
+        instanceCote(coordonne);
      }
 
     public double Perimetre() {
         double somme = 0;
-
-        for (int i = 0; i < Cote.size(); i++) {
-            somme = somme + this.Distance(Cote.get(i));
+        for(Ligne ligne: Cote) {
+            somme += ligne.Distance();
         }
 
         return somme;
@@ -41,7 +47,7 @@ public class Polygone extends Forme{
                 Ligne A = Pclone.get(i);//on prend le 1er côté
                 Ligne B = Pclone.get(i + 1);//on prend le 2eme côté
                 Ligne C = new Ligne(new Point(Pclone.get(i).getA().getX(), Pclone.get(i).getA().getY()), new Point(Pclone.get(i + 1).getB().getX(), Pclone.get(i + 1).getB().getY()));//on créé un côté qui relie A et B
-                if (Get_intercection(C,Pclone)%2==0){//on vérifie si combien de fois il coupe le polyone
+                if (Get_intercection(C,Pclone)%2!=0){//on vérifie si combien de fois il coupe le polyone
                     i++;// on incrémente l'indice et on recommence
                 }else {// si c'est pas bien
                     aire = aire + Aire_triangle(A, B, C);//si c'est impaire on calcule l'aire du triangle
@@ -129,6 +135,7 @@ public class Polygone extends Forme{
         return (A.Distance() * Hauteur(gamma, B.Distance())) / 2;
     }
 
+
     public double Alpha(Ligne A, Ligne B, Ligne C) {
         double alphaR = 0;
         double test = -0.5 * Math.pow(A.Distance(), 2) + 0.5 * Math.pow(B.Distance(), 2) + 0.5 * Math.pow(C.Distance(), 2) / (B.Distance() * C.Distance());
@@ -172,7 +179,7 @@ public class Polygone extends Forme{
         Cote.add(new Ligne(new Point(tab[(tab.length) - 1][0], tab[(tab.length) - 1][1]), new Point(tab[0][0], tab[0][1])));
     }
 
- public void Print() {
+    public void Print() {
 
         for (int i = 0; i < (Cote.size()); i++) {
             System.out.println(Cote.get(i).getA().getX() + " X1 , " + Cote.get(i).getA().getY() + "Y1  " + Cote.get(i).getB().getX() + " X2 , " + Cote.get(i).getB().getY() + "Y2 ");
@@ -180,60 +187,67 @@ public class Polygone extends Forme{
         }
     }
 
-        @Override
+    @Override
     public void homothetie(int rapport) {
         super.homothetie(rapport);
-            for (int i = 0; i < Cote.size(); i++) {
-                Cote.get(i).getA().setX(Cote.get(i).getA().getX()*rapport);
-                Cote.get(i).getA().setY(Cote.get(i).getA().getY()*rapport);
-                Cote.get(i).getB().setX(Cote.get(i).getB().getX()*rapport);
-                Cote.get(i).getB().setY(Cote.get(i).getB().getY()*rapport);
-            }
+        ArrayList<Ligne> coteBis = new ArrayList<>();
+        for(Ligne ligne: Cote) {
+            ligne.homothetie(rapport);
+            coteBis.add(ligne);
+        }
+        setCote(coteBis);
     }
 
     @Override
     public void translation(int[] vector) {
         super.translation(vector);
-        for (int i = 0; i < Cote.size(); i++) {
-            Cote.get(i).getA().setX(Cote.get(i).getA().getX()+vector[0]);
-            Cote.get(i).getA().setY(Cote.get(i).getA().getY()+vector[1]);
-            Cote.get(i).getB().setX(Cote.get(i).getB().getX()+vector[0]);
-            Cote.get(i).getB().setY(Cote.get(i).getB().getY()+vector[1]);
+        ArrayList<Ligne> coteBis = new ArrayList<>();
+        for(Ligne ligne: Cote) {
+            ligne.translation(vector);
+            coteBis.add(ligne);
         }
+        setCote(coteBis);
     }
 
     @Override
     public void symetrie_axiale() {
         super.symetrie_axiale();
-        for (int i = 0; i < Cote.size(); i++) {
-            Cote.get(i).getA().setX(-Cote.get(i).getA().getX());
-            Cote.get(i).getB().setX(-Cote.get(i).getB().getX());
+        ArrayList<Ligne> coteBis = new ArrayList<>();
+        for(Ligne ligne: Cote) {
+            ligne.symetrie_axiale();
+            coteBis.add(ligne);
         }
+        setCote(coteBis);
     }
 
     @Override
     public void symetrie_centrale() {
         super.symetrie_centrale();
+        ArrayList<Ligne> coteBis = new ArrayList<>();
+        for(Ligne ligne: Cote) {
+            ligne.symetrie_centrale();
+            coteBis.add(ligne);
+        }
+        setCote(coteBis);
     }
 
     @Override
     public void rotation() {
         super.rotation();
-        for(int i=0;i<Cote.size();i++){
-            int temp1 = Cote.get(i).getA().getX();
-            Cote.get(i).getA().setX(-Cote.get(i).getA().getY());
-            Cote.get(i).getA().setY(temp1);
-            int temp2 = Cote.get(i).getB().getX();
-            Cote.get(i).getB().setX(-Cote.get(i).getB().getY());
-            Cote.get(i).getB().setY(temp2);
+        ArrayList<Ligne> coteBis = new ArrayList<>();
+        for(Ligne ligne: Cote) {
+            ligne.rotation();
+            coteBis.add(ligne);
         }
+        setCote(coteBis);
     }
 
     public ArrayList<Ligne> getCote() {
         return Cote;
     }
 
-    public void setCote(int[][] coordonne) {
-        addLigne(coordonne);
+    @Override
+    public int compareTo(Polygone o) {
+        return 0;
     }
 }
