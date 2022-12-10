@@ -103,6 +103,7 @@ public class Main {
         System.out.println(P.Aire());
 
 
+        System.out.println(P.getClass().equals(P.getClass()));
 
 
 
@@ -111,7 +112,7 @@ public class Main {
 
 
         //FDD
-        //Frame fen = new Frame("Fresque");
+        Frame fen = new Frame("Fresque");
 
     }
 }
