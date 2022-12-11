@@ -24,7 +24,7 @@ public class CreatePolygone extends JPanel implements ActionListener {
         GridBagConstraints contrainte = new GridBagConstraints();
 
         contrainte.gridx = 0;
-        contrainte.gridy = 4;
+        contrainte.gridy = 0;
         add(validation,contrainte);
 
     }

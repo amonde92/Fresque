@@ -11,9 +11,9 @@ public class Ligne extends Forme implements Comparable<Ligne>{
     }
 
 
-    public int Distance(){
+    public double Distance(){
         try{
-            return (int) Math.sqrt(Math.pow((this.b.getX()-this.a.getX()),2)+Math.pow(this.b.getY()-this.a.getY(),2));
+            return Math.sqrt(Math.pow((this.b.getX()-this.a.getX()),2)+Math.pow(this.b.getY()-this.a.getY(),2));
         }
         catch (ArithmeticException e){
             System.out.println();
