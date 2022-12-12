@@ -11,8 +11,23 @@ public class Image {
     public void setListeForme(HashSet<Forme> listeForme) {this.listeForme = listeForme;}
     public HashSet<Forme> getListeForme() {return listeForme;}
 
-    public Image (HashSet<Forme> f){
-        listeForme=f;
+    public Image (){
+        this.listeForme= new HashSet<Forme>();
+    }
+
+    public Iterator getIterator() {
+        return this.listeForme.iterator();
+    }
+
+    public boolean addFormes_geo(Forme forme) {
+        Iterator j = this.getIterator();
+        while(j.hasNext()) {
+            Forme f = (Forme) j.next();
+            if(forme.equals(f)) {
+                return false;
+            }
+        }
+        return this.listeForme.add(forme);
     }
 
     public double Aire() {

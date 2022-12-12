@@ -9,22 +9,28 @@ import java.awt.event.ActionListener;
 public class CreatePolygone extends JPanel implements ActionListener {
 
     JButton validation = new JButton("validation");
-    JLabel X = new JLabel("X : ");
-    JLabel Y = new JLabel("Y : ");
+    PanelCreatePoint point = new PanelCreatePoint();
+    JButton Plus = new JButton("Ajouter un point");
 
-    JTextField YEnter = new JTextField();
-    JTextField XEnter = new JTextField();
-    JButton Plus = new JButton("Plus");
-    JButton remove = new JButton("remove");
 
     public CreatePolygone (){
 
 
         setLayout(new GridBagLayout());
         GridBagConstraints contrainte = new GridBagConstraints();
+        //contrainte.insets = new Insets(1,10,1,10);
 
         contrainte.gridx = 0;
         contrainte.gridy = 0;
+        contrainte.gridwidth = 3;
+        add(Plus,contrainte);
+
+        contrainte.gridx = 3;
+        contrainte.gridy = 0;
+        add(point,contrainte);
+
+        contrainte.gridx = 3;
+        contrainte.gridy = 3;
         add(validation,contrainte);
 
     }

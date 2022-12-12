@@ -1,4 +1,6 @@
 package Vue;
 
-public class CreateLigne {
+import javax.swing.*;
+
+public class CreateLigne extends JPanel {
 }

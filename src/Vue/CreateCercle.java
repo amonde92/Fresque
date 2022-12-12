@@ -7,13 +7,13 @@ import java.awt.event.ActionListener;
 
 public class CreateCercle extends JPanel implements ActionListener {
 
-    JButton validation = new JButton("validation");
+    JButton validation = new JButton("valider");
     JLabel Centre_X = new JLabel("X : ");
     JLabel Centre_Y = new JLabel("Y : ");
-    JLabel Rayon = new JLabel("R : ");
-    JTextField RayonEnter = new JTextField();
-    JTextField Centre_XEnter = new JTextField();
-    JTextField Centre_YEnter = new JTextField();
+    JLabel Rayon = new JLabel("Rayon: ");
+    JTextField RayonEnter = new JTextField(6);
+    JTextField Centre_XEnter = new JTextField(6);
+    JTextField Centre_YEnter = new JTextField(6);
 
     public CreateCercle (){
         setLayout(new GridBagLayout());
@@ -24,20 +24,17 @@ public class CreateCercle extends JPanel implements ActionListener {
         contrainte.gridx = 1;
         add(Centre_XEnter,contrainte);
 
-        contrainte.gridx = 0;
-        contrainte.gridy = 1;
+        contrainte.gridx = 2;
         add(Centre_Y,contrainte);
-        contrainte.gridx = 1;
+        contrainte.gridx = 3;
         add(Centre_YEnter,contrainte);
 
-        contrainte.gridx = 0;
-        contrainte.gridy = 2;
+        contrainte.gridx = 4;
         add(Rayon,contrainte);
-        contrainte.gridx = 1;
+        contrainte.gridx = 5;
         add(RayonEnter,contrainte);
 
-        contrainte.gridx = 0;
-        contrainte.gridy = 3;
+        contrainte.gridx = 6;
         add(validation,contrainte);
         validation.addActionListener(this);
 

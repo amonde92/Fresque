@@ -23,13 +23,6 @@ public class PanelMere extends JPanel implements ItemListener, ActionListener {
         PanelOption panelOption = new PanelOption(this);
         add(panelOption, BorderLayout.NORTH);
 
-        transformation.setVisible(true);
-        translation.setVisible(true);
-        rotation.setVisible(true);
-        sym_centrale.setVisible(true);
-        sym_axiale.setVisible(true);
-        homotethie.setVisible(true);
-
     }
 
     @Override
