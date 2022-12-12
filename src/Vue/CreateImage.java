@@ -1,4 +1,3 @@
-
 package Vue;
 
 import javax.swing.*;
@@ -60,5 +59,3 @@ public class CreateImage extends JDialog implements ItemListener {
 
 
 }
-
-
