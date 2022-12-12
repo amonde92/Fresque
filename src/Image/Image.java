@@ -5,7 +5,7 @@ import Forme.Forme;
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class Image  extends Forme{
+public class Image {
     private HashSet<Forme> listeForme;
 
     public void setListeForme(HashSet<Forme> listeForme) {this.listeForme = listeForme;}
@@ -15,9 +15,7 @@ public class Image  extends Forme{
         listeForme=f;
     }
 
-    @Override
     public double Aire() {
-        super.Aire();
         double aire =0;
         for(Forme forme: this.listeForme) {
             forme.rotation();
@@ -26,9 +24,7 @@ public class Image  extends Forme{
         return aire;
     }
 
-    @Override
     public double Perimetre() {
-        super.Perimetre();
         double somme = 0;
         for (Forme f : this.listeForme) {
             somme += f.Perimetre();
@@ -36,61 +32,47 @@ public class Image  extends Forme{
         return somme;
     }
 
-    @Override
     public void homothetie(int rapport) {
-        super.homothetie(rapport);
         for (Forme forme : this.listeForme) {
             forme.homothetie(rapport);
 
         }
     }
-    @Override
     public void translation(int[] vector) {
-        super.translation(vector);
         for (Forme forme : this.listeForme) {
             forme.translation(vector);
         }
     }
 
-    @Override
     public void rotation() {
-        super.rotation();
         for (Forme forme : this.listeForme) {
             forme.rotation();
         }
     }
 
-    @Override
+
     public void symetrie_axiale() {
-        super.symetrie_axiale();
         for (Forme forme : this.listeForme) {
             forme.symetrie_axiale();
         }
     }
 
-    @Override
     public void symetrie_centrale() {
-        super.symetrie_centrale();
         for (Forme forme : this.listeForme) {
             forme.symetrie_centrale();
         }
     }
 
     // vérifie que deux images ne soient pas égale
-    // (deux images sont considérer égale si elle contiennet les meme formes)
+    // (2 images sont considéré égale si elle leurs formes sont toutes égales)
     public boolean equal(Image image) {
-        //if (taille égale a 4nretourne true )
-        int tempo = listeForme.size();
-        int tempo2 = image.listeForme.size();
-        int taille = Math.max(tempo, tempo2);
+        if (this == image) return true;
+        if (image == null) return false;
+        if (this.getClass() != image.getClass()) return false;
 
-        for (Forme forme: image.listeForme){
-            for (Forme forme1: listeForme){
-                if (forme.getClass().equals(forme1.getClass())){
-                    taille--;
-                }
-            }
-        }
-        return taille == 0;
+        Image i = (Image) image;
+        if (listeForme == null) {
+            return i.listeForme == null;
+        } else return listeForme.equals(i.listeForme);
     }
 }

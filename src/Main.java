@@ -45,16 +45,16 @@ public class Main {
             System.out.println(p.toString()+"\n");
         }*/
 
-        /*Point ctr = new Point(0, 0);
-        Point a = new Point(5, 0);
-        Point b = new Point(0, 7);
+        Point ctr = new Point(5, 2);
+        Point a = new Point(7, 2);
+        Point b = new Point(5, 3);
         Ellipse e = new Ellipse(ctr, a, b);
 
         System.out.println("Initiale :" +e);
         System.out.println("Aire : "+ e.Aire());
         System.out.println("Perimètre : "+ e.Perimetre());
 
-        e.homothetie(2);
+        /*e.homothetie(2);
         System.out.println("Homothétie :" + e);
 
         e.translation(new int[]{50, 100});
@@ -86,19 +86,9 @@ public class Main {
         c.symetrie_centrale();
         System.out.println("Symétire centrale :" + c);*/
 
-        int [][] T = new int[][]{{1,1}, {2,2}, {3,1}, {2,0}};
+        int [][] T = new int[][]{{1,2}, {3,4}, {-3,7}, {6,1},{4,0}};
         Polygone P = new Polygone(T);
-        P.Print();
-        System.out.println();
-        System.out.println();
-        P.rotation();
-        System.out.println();
-        System.out.println();
-        P.Print();
-        P.homothetie(2);
-        System.out.println();
-        System.out.println();
-        P.Print();
+
 
         System.out.println(P.Aire());
 

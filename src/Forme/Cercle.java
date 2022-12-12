@@ -69,6 +69,16 @@ public class Cercle extends Forme implements Comparable<Cercle> {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (this.getClass() != obj.getClass()) return false;
+
+        Cercle c = (Cercle) obj;
+        return this.ray.equals(c.ray);
+    }
+
+    @Override
     public String toString() {
         return "Cercle{" +
                 "center=" + center +

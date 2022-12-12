@@ -63,6 +63,18 @@ public class Ligne extends Forme implements Comparable<Ligne>{
     public void setB(Point b) {this.b = b;}
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (this.getClass() != obj.getClass()) return false;
+        Ligne l = (Ligne) obj;
+        if (this.getA().equals(l.getA())){
+            return this.getB().equals(l.getB());
+        }
+        return false ;
+    }
+
+    @Override
     public String toString() {
         return "Ligne{" +
                 "a=" + a +

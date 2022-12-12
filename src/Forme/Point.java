@@ -46,6 +46,16 @@ public class Point extends Forme{
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (this.getClass() != obj.getClass()) return false;
+
+        Point p = (Point) obj;
+        return this.getX() == p.getX() && this.getY() == p.getY();
+    }
+
+    @Override
     public String toString() {
         return "Point{" +
                 "x=" + x +

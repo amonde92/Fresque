@@ -94,13 +94,26 @@ public class Ellipse extends Forme implements Comparable<Ellipse>{
     @Override
     public double Perimetre() {
         super.Perimetre();
-        return pi*(float)Math.sqrt(2*((float)Math.pow(rayonA.Distance(),2)+(float)Math.pow(rayonB.Distance(),2)));
+        return 2*pi*(float)Math.sqrt(((float)Math.pow(rayonA.Distance(),2)+(float)Math.pow(rayonB.Distance(),2))/2);
     }
 
     @Override
     public double Aire() {
         super.Aire();
         return pi* rayonA.Distance()* rayonB.Distance();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (this.getClass() != obj.getClass()) return false;
+
+        Ellipse e = (Ellipse) obj;
+        if(this.rayonA.equals(e.rayonA)) {
+            return this.rayonB.equals(e.rayonB);
+        }
+        return false;
     }
 
     @Override
