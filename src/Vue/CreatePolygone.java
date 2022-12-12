@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 public class CreatePolygone extends JPanel implements ActionListener {
 
     JButton validation = new JButton("validation");
-    PanelCreatePoint point = new PanelCreatePoint();
+    PanelCreatePoint point = new PanelCreatePoint(this);
     JButton Plus = new JButton("Ajouter un point");
 
 
@@ -38,6 +38,9 @@ public class CreatePolygone extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        if(e.getSource() == point.getValidate() ){
+            System.out.println(point.getXEnter().getText() +" "+point.getYEnter().getText());
+        }
     }
 }
 

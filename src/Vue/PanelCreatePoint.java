@@ -6,6 +6,23 @@ import java.awt.*;
 public class PanelCreatePoint extends JPanel {
 
     JLabel X = new JLabel("X : ");
+
+    public JButton getValidate() {
+        return validate;
+    }
+
+    public void setValidate(JButton validate) {
+        this.validate = validate;
+    }
+
+    public JTextField getXEnter() {
+        return XEnter;
+    }
+
+    public JTextField getYEnter() {
+        return YEnter;
+    }
+
     JLabel Y = new JLabel("Y : ");
 
     JTextField XEnter = new JTextField(6);
@@ -13,7 +30,9 @@ public class PanelCreatePoint extends JPanel {
 
     JButton validate =  new JButton("Valider");
 
-    public PanelCreatePoint (){
+    CreatePolygone c;
+    public PanelCreatePoint (CreatePolygone c){
+        this.c = c;
         setLayout(new GridBagLayout());
         GridBagConstraints contrainte = new GridBagConstraints();
         contrainte.insets = new Insets(10,10,10,10);
@@ -31,6 +50,7 @@ public class PanelCreatePoint extends JPanel {
         contrainte.gridx = 1;
         contrainte.gridy = 2;
         add(validate,contrainte);
+        validate.addActionListener(c);
     }
 
 
