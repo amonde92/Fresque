@@ -11,11 +11,14 @@ public class CreateCercle extends JPanel implements ActionListener {
     JLabel Centre_X = new JLabel("X : ");
     JLabel Centre_Y = new JLabel("Y : ");
     JLabel Rayon = new JLabel("R : ");
-    JTextField RayonEnter = new JTextField();
-    JTextField Centre_XEnter = new JTextField();
-    JTextField Centre_YEnter = new JTextField();
+    JTextField RayonEnter = new JTextField(6);
+    JTextField Centre_XEnter = new JTextField(6);
+    JTextField Centre_YEnter = new JTextField(6);
 
-    public CreateCercle (){
+    CreateImage createImage;
+
+    public CreateCercle (CreateImage c){
+        this.createImage = c;
         setLayout(new GridBagLayout());
         GridBagConstraints contrainte = new GridBagConstraints();
         contrainte.gridx = 0;
@@ -39,9 +42,74 @@ public class CreateCercle extends JPanel implements ActionListener {
         contrainte.gridx = 0;
         contrainte.gridy = 3;
         add(validation,contrainte);
-        validation.addActionListener(this);
+        validation.addActionListener(c);
 
     }
+
+    public JButton getValidation() {
+        return validation;
+    }
+
+    public void setValidation(JButton validation) {
+        this.validation = validation;
+    }
+
+    public JLabel getCentre_X() {
+        return Centre_X;
+    }
+
+    public void setCentre_X(JLabel centre_X) {
+        Centre_X = centre_X;
+    }
+
+    public JLabel getCentre_Y() {
+        return Centre_Y;
+    }
+
+    public void setCentre_Y(JLabel centre_Y) {
+        Centre_Y = centre_Y;
+    }
+
+    public JLabel getRayon() {
+        return Rayon;
+    }
+
+    public void setRayon(JLabel rayon) {
+        Rayon = rayon;
+    }
+
+    public JTextField getRayonEnter() {
+        return RayonEnter;
+    }
+
+    public void setRayonEnter(JTextField rayonEnter) {
+        RayonEnter = rayonEnter;
+    }
+
+    public JTextField getCentre_XEnter() {
+        return Centre_XEnter;
+    }
+
+    public void setCentre_XEnter(JTextField centre_XEnter) {
+        Centre_XEnter = centre_XEnter;
+    }
+
+    public JTextField getCentre_YEnter() {
+        return Centre_YEnter;
+    }
+
+    public void setCentre_YEnter(JTextField centre_YEnter) {
+        Centre_YEnter = centre_YEnter;
+    }
+
+    public CreateImage getCreateImage() {
+        return createImage;
+    }
+
+    public void setCreateImage(CreateImage createImage) {
+        this.createImage = createImage;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()== validation) {

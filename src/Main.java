@@ -104,12 +104,7 @@ public class Main {
 
 
         //FDD
-        /*Point[] points = {new Point(1, 2), new Point(3, 4), new Point(5, 6)};
-        PointPolygoneTable model = new PointPolygoneTable(points);
-        JTable table = new JTable(model);*/
-
         Frame fen = new Frame("Fresque");
-        //fen.add(new JScrollPane(table));
 
     }
 }

@@ -18,7 +18,10 @@ public class CreateEllipse extends JPanel implements ActionListener {
     JTextField AText = new JTextField(6);
     JTextField BText = new JTextField(6);
 
-    public CreateEllipse() {
+    CreateImage createImage;
+
+    public CreateEllipse(CreateImage c) {
+        this.createImage = c;
         setLayout(new GridBagLayout());
         GridBagConstraints contrainte = new GridBagConstraints();
 
@@ -49,8 +52,16 @@ public class CreateEllipse extends JPanel implements ActionListener {
 
         contrainte.gridx = 4;
         add(validation, contrainte);
-        validation.addActionListener(this);
+        validation.addActionListener(c);
 
+    }
+
+    public JButton getValidation() {
+        return validation;
+    }
+
+    public void setValidation(JButton validation) {
+        this.validation = validation;
     }
 
     @Override

@@ -3,13 +3,14 @@ package Vue;
 import Forme.Point;
 
 import javax.swing.table.AbstractTableModel;
+import java.util.ArrayList;
 
 public class PointPolygoneTable extends AbstractTableModel {
 
     private final String[] entetes = { "X", "Y"};
-    private final Point[] points;
+    private final ArrayList<Point> points;
 
-    public PointPolygoneTable(Point[] points) {
+    public PointPolygoneTable(ArrayList<Point> points) {
         this.points = points;
     }
 
@@ -24,14 +25,14 @@ public class PointPolygoneTable extends AbstractTableModel {
     }
     @Override
     public int getRowCount() {
-        return points.length;
+        return points.size();
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         return switch (columnIndex) {
-            case 0 -> points[rowIndex].getX();
-            case 1 -> points[rowIndex].getY();
+            case 0 -> points.get(rowIndex).getX();
+            case 1 -> points.get(rowIndex).getY();
             default -> null;
         };
     }

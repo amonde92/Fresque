@@ -9,6 +9,7 @@ import java.awt.event.ItemListener;
 
 public class PanelMere extends JPanel implements ItemListener, ActionListener {
     JPanel currentPanel;
+    PanelOption panelOption;
     PanelTranslation translation =new PanelTranslation();
     PanelFresque transformation = new PanelFresque("Transformation");
     PanelFresque homotethie = new PanelFresque("Homotéthie");
@@ -20,8 +21,13 @@ public class PanelMere extends JPanel implements ItemListener, ActionListener {
     public PanelMere(JFrame frame) {
         this.frame = frame;
         setLayout(new BorderLayout());
-        PanelOption panelOption = new PanelOption(this);
+        panelOption = new PanelOption(this);
         add(panelOption, BorderLayout.NORTH);
+        currentPanel = transformation;
+        add(currentPanel,BorderLayout.CENTER);
+        currentPanel.setVisible(true);
+
+
 
     }
 
@@ -44,13 +50,12 @@ public class PanelMere extends JPanel implements ItemListener, ActionListener {
         if (currentPanel != null) {
             this.add(currentPanel);
         }
-
         this.updateUI();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() != null ){
+        if(e.getSource() == panelOption.getCreate()){
             CreateImage n = new CreateImage(frame);
 
         }

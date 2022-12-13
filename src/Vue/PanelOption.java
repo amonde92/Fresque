@@ -37,7 +37,7 @@ public class PanelOption extends JPanel implements ActionListener {
 
         contraint.gridx = 1;
         transformation.addItemListener(panelMere);
-        transformation.setSelectedIndex(0);
+        transformation.setSelectedItem("Transformation");
         add(transformation,contraint);
 
 
@@ -56,6 +56,17 @@ public class PanelOption extends JPanel implements ActionListener {
         contraint.gridx = 5;
         add(display_perimetre,contraint);
         display_perimetre.setVisible(false);
+
+        this.updateUI();
+
+    }
+
+    public JButton getCreate() {
+        return create;
+    }
+
+    public void setCreate(JButton create) {
+        this.create = create;
     }
 
     @Override

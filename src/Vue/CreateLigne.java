@@ -16,8 +16,11 @@ public class CreateLigne extends JPanel implements ActionListener {
     JTextField X2_Enter = new JTextField(5);
     JTextField Y2_Enter = new JTextField(5);
 
+    CreateImage createImage;
 
-    public CreateLigne() {
+
+    public CreateLigne(CreateImage c) {
+        this.createImage = c;
         setLayout(new GridBagLayout());
         GridBagConstraints contrainte = new GridBagConstraints();
         contrainte.insets= new Insets(10,10,10,10);
@@ -45,9 +48,50 @@ public class CreateLigne extends JPanel implements ActionListener {
 
         contrainte.gridy = 2;
         add(validation,contrainte);
-        validation.addActionListener(this);
+        validation.addActionListener(c);
     }
-        @Override
+
+    public JButton getValidation() {
+        return validation;
+    }
+
+    public void setValidation(JButton validation) {
+        this.validation = validation;
+    }
+
+    public JTextField getX1_Enter() {
+        return X1_Enter;
+    }
+
+    public void setX1_Enter(JTextField x1_Enter) {
+        X1_Enter = x1_Enter;
+    }
+
+    public JTextField getY1_Enter() {
+        return Y1_Enter;
+    }
+
+    public void setY1_Enter(JTextField y1_Enter) {
+        Y1_Enter = y1_Enter;
+    }
+
+    public JTextField getX2_Enter() {
+        return X2_Enter;
+    }
+
+    public void setX2_Enter(JTextField x2_Enter) {
+        X2_Enter = x2_Enter;
+    }
+
+    public JTextField getY2_Enter() {
+        return Y2_Enter;
+    }
+
+    public void setY2_Enter(JTextField y2_Enter) {
+        Y2_Enter = y2_Enter;
+    }
+
+    @Override
         public void actionPerformed (ActionEvent e){
             if (e.getSource()== validation) {
 
