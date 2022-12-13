@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Polygone extends Forme implements Comparable<Polygone> {
-    /*
+
     public void Print() {
 
         for (int i = 0; i < (Cote.size()); i++) {
@@ -12,22 +12,21 @@ public class Polygone extends Forme implements Comparable<Polygone> {
 
         }
     }
-    }*/
 
     private ArrayList<Ligne> Cote = new ArrayList<>();
 
-    public  Polygone (int [][] coordonne){
-        instanceCote(coordonne);
+    public  Polygone (ArrayList<Point> point){
+        instanceCote(point);
     }
-    public void instanceCote(int[][] coordonne) {
-        addLigne(coordonne);
+    public void instanceCote(ArrayList<Point> point) {
+        addLigne(point);
     }
-    public void addLigne(int[][] tab) {
+    public void addLigne(ArrayList<Point> point) {
 
-        for (int i = 0; i < (tab.length) - 1; i++) {
-            Cote.add(new Ligne(new Point(tab[i][0], tab[i][1]), new Point(tab[i + 1][0], tab[i + 1][1])));
+        for (int i = 0; i < (point.size()) - 1; i++) {
+            Cote.add(new Ligne(point.get(i),point.get(i+1)));
         }
-        Cote.add(new Ligne(new Point(tab[(tab.length) - 1][0], tab[(tab.length) - 1][1]), new Point(tab[0][0], tab[0][1])));
+        Cote.add(new Ligne(point.get(point.size()-1), point.get(0)));
     }
     @Override
     public double Perimetre() {
