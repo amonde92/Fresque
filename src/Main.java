@@ -105,6 +105,7 @@ public class Main {
 
 
         //FDD
+
         Point A = new Point(0,0);
         Point B = new Point(1,0);
         Point C = new Point(1,1);
@@ -118,6 +119,7 @@ public class Main {
         P.Print();
 
         Frame fen = new Frame("Fresque");
+        //fen.add(new JScrollPane(table));
 
     }
 }

@@ -5,6 +5,8 @@ import java.util.Objects;
 
 public class Polygone extends Forme implements Comparable<Polygone> {
 
+
+    /*
     public void Print() {
 
         for (int i = 0; i < (Cote.size()); i++) {
@@ -12,15 +14,17 @@ public class Polygone extends Forme implements Comparable<Polygone> {
 
         }
     }
+    */
 
-    private ArrayList<Ligne> Cote = new ArrayList<>();
+    /**
+     * variable permétant de stocké ligne que compose un polygone
+     * fonction permettant de l'instansier
+     */
+    private ArrayList<Ligne> Cote = new ArrayList<>(); // stockage des ligne qui compose un polygone
+    public  Polygone (ArrayList<Point> point){instanceCote(point);} // permet de créer un polygone
+    public void instanceCote(ArrayList<Point> point) {addLigne(point);} // permet de mettre les ligne du polygone
 
-    public  Polygone (ArrayList<Point> point){
-        instanceCote(point);
-    }
-    public void instanceCote(ArrayList<Point> point) {
-        addLigne(point);
-    }
+
     public void addLigne(ArrayList<Point> point) {
 
         for (int i = 0; i < (point.size()) - 1; i++) {
