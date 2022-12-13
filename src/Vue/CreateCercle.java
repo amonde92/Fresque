@@ -9,6 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CreateCercle extends JPanel implements ActionListener {
+    /**
+     * création des textes et de l'affiche du panel
+     */
     private Cercle cercle;
     JButton validation = new JButton("validation");
     JLabel Centre_X = new JLabel("X : ");
@@ -18,6 +21,11 @@ public class CreateCercle extends JPanel implements ActionListener {
     JTextField Centre_XEnter = new JTextField(6);
     JTextField Centre_YEnter = new JTextField(6);
 
+    /**
+     * mise en place des texts et de l'affichage du panel
+     * mise en place d'action Listener
+     */
+    public CreateCercle (){
     CreateImage createImage;
 
     public CreateCercle (CreateImage c){
@@ -52,6 +60,11 @@ public class CreateCercle extends JPanel implements ActionListener {
     public JButton getValidation() {
         return validation;
     }
+
+    /**
+     * si le boutton de validation est appuyé on récupère les valeur mis dans les texts
+     * et on créé la forme en question
+     */
 
     public void setValidation(JButton validation) {
         this.validation = validation;
@@ -126,6 +139,10 @@ public class CreateCercle extends JPanel implements ActionListener {
         }
 
     }
+
+    /**
+     * setteur et getteur du cercle
+     */
 
     public void setCercle(Cercle cercle) {
         this.cercle = cercle;

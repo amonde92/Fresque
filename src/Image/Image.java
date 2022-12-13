@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 public class Image {
+
+
     private HashSet<Forme> listeForme;
 
     public void setListeForme(HashSet<Forme> listeForme) {this.listeForme = listeForme;}
@@ -30,15 +32,20 @@ public class Image {
         return this.listeForme.add(forme);
     }
 
+    /**
+     * calcule l'aire de l'image avec l'aire de ses formes
+     */
     public double Aire() {
         double aire =0;
         for(Forme forme: this.listeForme) {
-            forme.rotation();
             aire += forme.Aire();
         }
         return aire;
     }
 
+    /**
+     * calcule le périmetre de l'image avec l'aire de ses formes
+     */
     public double Perimetre() {
         double somme = 0;
         for (Forme f : this.listeForme) {
@@ -46,41 +53,57 @@ public class Image {
         }
         return somme;
     }
-
+    /**
+     * augmentation ou réduction des formes qui compose l'image par rapport à un rapport
+     */
     public void homothetie(int rapport) {
         for (Forme forme : this.listeForme) {
             forme.homothetie(rapport);
 
         }
     }
+
+    /**
+     * translation des formes qui compose l'image par rapport à un vecteur
+     */
     public void translation(int[] vector) {
         for (Forme forme : this.listeForme) {
             forme.translation(vector);
         }
     }
 
+    /**
+     * rotation des formes qui compose l'image par rapport à un rapport
+     */
     public void rotation() {
         for (Forme forme : this.listeForme) {
             forme.rotation();
         }
     }
 
-
+    /**
+     * symétrie axiale des formes qui compose l'image par rapport à un rapport
+     */
     public void symetrie_axiale() {
         for (Forme forme : this.listeForme) {
             forme.symetrie_axiale();
         }
     }
 
+    /**
+     * symétrie centrale des formes qui compose l'image par rapport à un rapport
+     */
     public void symetrie_centrale() {
         for (Forme forme : this.listeForme) {
             forme.symetrie_centrale();
         }
     }
 
-    // vérifie que deux images ne soient pas égale
-    // (2 images sont considéré égale si elle leurs formes sont toutes égales)
-    public boolean equal(Image image) {
+    /**
+     * vérifie que deux images ne soient pas égale
+     * (2 images sont considéré égale si elle leurs formes sont toutes égales)
+     */
+     public boolean equal(Image image) {
         if (this == image) return true;
         if (image == null) return false;
         if (this.getClass() != image.getClass()) return false;

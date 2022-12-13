@@ -112,6 +112,9 @@ public class Main {
         point.add(C);
         point.add(D);
         Polygone P = new Polygone(point);
+        P.translation(new int[]{1, 1});
+        P.Print();
+        //Frame fen = new Frame("Fresque");
 
         Frame fen = new Frame("Fresque");
         //fen.add(new JScrollPane(table));

@@ -1,6 +1,9 @@
 package Forme;
 
 public abstract class Forme {
+    /**
+     *
+     */
     public  void homothetie (int rapport){}
 
     public void translation(int [] vector){

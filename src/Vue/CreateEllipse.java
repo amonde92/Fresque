@@ -9,6 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CreateEllipse extends JPanel implements ActionListener {
+
+    /**
+     * création des textes et de l'affiche du panel
+     */
     private Ellipse ellipse;
     JButton validation = new JButton("validation");
     JLabel CentreX = new JLabel("X : ");
@@ -22,6 +26,12 @@ public class CreateEllipse extends JPanel implements ActionListener {
     JTextField AText = new JTextField(6);
     JTextField BText = new JTextField(6);
 
+    /**
+     * mise en place des texts et de l'affichage du panel
+     * mise en place d'action Listener
+     */
+
+    public CreateEllipse() {
     CreateImage createImage;
 
     public CreateEllipse(CreateImage c) {
@@ -68,6 +78,14 @@ public class CreateEllipse extends JPanel implements ActionListener {
         this.validation = validation;
     }
 
+
+
+    }
+
+    /**
+     * si le boutton de validation est appuyé on récupère les valeur mis dans les texts
+     * et on créé la forme en question
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == validation) {
@@ -83,6 +101,9 @@ public class CreateEllipse extends JPanel implements ActionListener {
         }
     }
 
+    /**
+     * setteur et getteur de l'éllipse
+     */
     public Ellipse getEllipse() {
         return ellipse;
     }
