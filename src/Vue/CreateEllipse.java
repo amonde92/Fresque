@@ -1,11 +1,15 @@
 package Vue;
 
+import Forme.Ellipse;
+import Forme.Point;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CreateEllipse extends JPanel implements ActionListener {
+    private Ellipse ellipse;
     JButton validation = new JButton("validation");
     JLabel CentreX = new JLabel("X : ");
     JLabel CentreY = new JLabel("Y : ");
@@ -63,8 +67,17 @@ public class CreateEllipse extends JPanel implements ActionListener {
             int Ay = Y1;
             int Bx = X1;
             int By = Y1 + Integer.parseInt(String.valueOf(BText.getText()));
-            System.out.println(Y1+"  "+X1+"  "+Ax+"  "+Ay+"  "+Bx+"  "+By);
+            ellipse = new Ellipse(new Point(X1, Y1), new Point(Ax, Ay), new Point(Bx, By));
+
         }
+    }
+
+    public Ellipse getEllipse() {
+        return ellipse;
+    }
+
+    public void setEllipse(Ellipse ellipse) {
+        this.ellipse = ellipse;
     }
 }
 

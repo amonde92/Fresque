@@ -41,7 +41,7 @@ public class CreateImage extends JDialog implements ItemListener {
     @Override
     public void itemStateChanged(ItemEvent e) {
         if (currentPanel != null) panel.remove(currentPanel);
-
+        ;
         switch (e.getItem().toString()) {
             case "Cercle" -> currentPanel = createC;
             case "Ellipse" -> currentPanel = createE;

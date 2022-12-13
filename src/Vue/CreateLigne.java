@@ -1,11 +1,15 @@
 package Vue;
 
+import Forme.Ligne;
+import Forme.Point;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CreateLigne extends JPanel implements ActionListener {
+    private Ligne ligne;
     JButton validation = new JButton("validation");
     JLabel X1 = new JLabel("X1 : ");
     JLabel Y1 = new JLabel("Y1 : ");
@@ -56,9 +60,12 @@ public class CreateLigne extends JPanel implements ActionListener {
                 int X1 = Integer.parseInt(String.valueOf(X1_Enter.getText()));
                 int Y2 = Integer.parseInt(String.valueOf(Y2_Enter.getText()));
                 int X2 = Integer.parseInt(String.valueOf(X2_Enter.getText()));
+                ligne = new Ligne(new Point(X1, Y1), new Point(X2, Y2));
 
             }
         }
 
+    public void setLigne(Ligne ligne) {this.ligne = ligne;}
+    public Ligne getLigne() {return ligne;}
 }
 

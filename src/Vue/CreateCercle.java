@@ -1,12 +1,15 @@
 package Vue;
 
+import Forme.Cercle;
+import Forme.Point;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CreateCercle extends JPanel implements ActionListener {
-
+    private Cercle cercle;
     JButton validation = new JButton("validation");
     JLabel Centre_X = new JLabel("X : ");
     JLabel Centre_Y = new JLabel("Y : ");
@@ -50,8 +53,17 @@ public class CreateCercle extends JPanel implements ActionListener {
             int X1 = Integer.parseInt(String.valueOf(Centre_YEnter.getText()));
             int RayonX = X1+Integer.parseInt(String.valueOf(Centre_XEnter.getText()));
             int RayonY = Y1;
+            cercle = new Cercle(new Point(X1,Y1),new Point(RayonX,RayonY));
 
         }
 
+    }
+
+    public void setCercle(Cercle cercle) {
+        this.cercle = cercle;
+    }
+
+    public Cercle getCercle() {
+        return cercle;
     }
 }
