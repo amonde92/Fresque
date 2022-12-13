@@ -4,6 +4,7 @@ import Forme.Point;
 import Forme.Polygone;
 import Vue.Frame;
 import Forme.Ellipse;
+import Vue.PanelFresque;
 import Vue.PointPolygoneTable;
 
 import javax.swing.*;
@@ -89,14 +90,9 @@ public class Main {
         c.symetrie_centrale();
         System.out.println("Symétire centrale :" + c);*/
 
-        int [][] T = new int[][]{{1,2}, {3,4}, {-3,7}, {6,1},{4,0}};
-        Polygone P = new Polygone(T);
 
 
-        System.out.println(P.Aire());
 
-
-        System.out.println(P.getClass().equals(P.getClass()));
 
 
 
@@ -116,7 +112,6 @@ public class Main {
         point.add(C);
         point.add(D);
         Polygone P = new Polygone(point);
-        P.Print();
 
         Frame fen = new Frame("Fresque");
         //fen.add(new JScrollPane(table));

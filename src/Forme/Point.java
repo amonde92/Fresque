@@ -6,8 +6,8 @@ public class Point extends Forme{
 
 
     public Point(int x, int y) {
-        this.x = x;
-        this.y = y;
+        this.x = x+618;
+        this.y = y+283;
     }
 
     public int getX() {return x;}
@@ -20,17 +20,17 @@ public class Point extends Forme{
 
     public void rotation (){
         int ValTemp=x;
-        x=-y;
+        x=-y+618;
         y=ValTemp;
     }
 
-    public void symetrie_axiale(){x=-x;}
+    public void symetrie_axiale(){x=-x+618;}
 
     @Override
     public void symetrie_centrale() {
         super.symetrie_centrale();
-        x=-x;
-        y=-y;
+        x=-x+618;
+        y=-y+283;
     }
 
     public void translation(int [] vector){
@@ -41,8 +41,8 @@ public class Point extends Forme{
     @Override
     public void homothetie(int rapport) {
         super.homothetie(rapport);
-        x*=rapport;
-        y*=rapport;
+        x*=rapport-618;
+        y*=rapport-283;
     }
 
     @Override

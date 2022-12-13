@@ -8,9 +8,9 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 public class PanelMere extends JPanel implements ItemListener, ActionListener {
-    JPanel currentPanel;
+    PanelFresque currentPanel;
     PanelOption panelOption;
-    PanelTranslation translation =new PanelTranslation();
+    //PanelTranslation translation =new PanelTranslation();
     PanelFresque transformation = new PanelFresque("Transformation");
     PanelFresque homotethie = new PanelFresque("Homotéthie");
     PanelFresque rotation = new PanelFresque("Rotation");
@@ -43,7 +43,7 @@ public class PanelMere extends JPanel implements ItemListener, ActionListener {
             case "Rotation" -> currentPanel = rotation;
             case "Symétrie Centrale" -> currentPanel = sym_centrale;
             case "Symétrie Axiale" -> currentPanel = sym_axiale;
-            case "Translation" -> currentPanel = translation;
+            //case "Translation" -> currentPanel = translation;
         }
 
         System.out.println(currentPanel);
@@ -51,13 +51,13 @@ public class PanelMere extends JPanel implements ItemListener, ActionListener {
             this.add(currentPanel);
         }
         this.updateUI();
+        currentPanel.getCenter();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == panelOption.getCreate()){
             CreateImage n = new CreateImage(frame);
-
         }
     }
 }

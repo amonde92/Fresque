@@ -19,12 +19,13 @@ public class CreateImage extends JDialog implements ItemListener, ActionListener
     JComboBox<String> transformation;
 
     JButton validateCreateImage = new JButton("Créer image");
+    JDialog creer_un_dessin;
 
 
 
     public CreateImage(JFrame frame) {
         this.frame = frame;
-        JDialog creer_un_dessin = new JDialog(frame, "Créer une image");
+        creer_un_dessin = new JDialog(frame, "Créer une image");
         creer_un_dessin.setLayout(new GridBagLayout());
         GridBagConstraints contraint = new GridBagConstraints();
         String[] transfo = {"Choisssez une forme à ajouter","Cercle", "Ellipse", "Polygone", "Ligne"};
@@ -94,10 +95,8 @@ public class CreateImage extends JDialog implements ItemListener, ActionListener
         if (e.getSource() == createL.getValidation() ){
             this.transformation.setSelectedIndex(0);
         }
-        if (e.getSource() == validateCreateImage){
-            System.out.println("ferler");
-            this.setVisible(false);
-            this.dispose();
+        if(e.getSource() == validateCreateImage){
+            creer_un_dessin.dispose();
         }
     }
 }
