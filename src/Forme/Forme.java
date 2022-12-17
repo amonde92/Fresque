@@ -2,7 +2,7 @@ package Forme;
 
 public abstract class Forme {
     /**
-     *
+     * fonction de transformation des formes
      */
     public  void homothetie (int rapport){}
 

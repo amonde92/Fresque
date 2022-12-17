@@ -20,14 +20,13 @@ public class CreateCercle extends JPanel implements ActionListener {
     JTextField RayonEnter = new JTextField(6);
     JTextField Centre_XEnter = new JTextField(6);
     JTextField Centre_YEnter = new JTextField(6);
-
-    /**
-     * mise en place des texts et de l'affichage du panel
-     * mise en place d'action Listener
-     */
-    public CreateCercle (){
     CreateImage createImage;
 
+
+    /**
+     * la fonction CreateCercle permet de créer les éléments qui seront dans la fenêtre
+     * dans le cas ou celle-ci est sélectionné.
+     */
     public CreateCercle (CreateImage c){
         this.createImage = c;
         setLayout(new GridBagLayout());
@@ -62,7 +61,7 @@ public class CreateCercle extends JPanel implements ActionListener {
     }
 
     /**
-     * si le boutton de validation est appuyé on récupère les valeur mis dans les texts
+     * si le boutton de validation est appuyé on récupère les valeurs missent dans les texts
      * et on créé la forme en question
      */
 
@@ -135,6 +134,7 @@ public class CreateCercle extends JPanel implements ActionListener {
             int RayonX = X1+Integer.parseInt(String.valueOf(Centre_XEnter.getText()));
             int RayonY = Y1;
             cercle = new Cercle(new Point(X1,Y1),new Point(RayonX,RayonY));
+
 
         }
 

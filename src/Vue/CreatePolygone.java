@@ -8,9 +8,12 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import Forme.Point;
+import Forme.Polygone;
 
 public class CreatePolygone extends JPanel implements ActionListener {
-
+    /**
+     * création des textes et de l'affiche du panel
+     */
     JButton validation = new JButton("validation");
     PanelCreatePoint point = new PanelCreatePoint(this);
     JButton Plus = new JButton("Ajouter un point");
@@ -24,8 +27,12 @@ public class CreatePolygone extends JPanel implements ActionListener {
     JTable table = new JTable(model);
 
     CreateImage createImage;
+    Polygone polygone;
 
-
+    /**
+     * mise en place des texts et de l'affichage du panelh
+     * mise en place d'action Listener
+     */
     public CreatePolygone (CreateImage c){
         this.createImage = c;
 
@@ -65,7 +72,9 @@ public class CreatePolygone extends JPanel implements ActionListener {
     public void setValidation(JButton validation) {
         this.validation = validation;
     }
-
+    /**
+     * si un bouton est appuyer on rentre dans la fonction et on execute la suite lié au bouton appuyer
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == Plus){
@@ -78,6 +87,11 @@ public class CreatePolygone extends JPanel implements ActionListener {
             point.setVisible(false);
             this.updateUI();
         }
+        if (e.getSource() == validation){
+            polygone = new Polygone(poi);
+        }
     }
+
+    public Polygone getPolygone() {return polygone;}
 }
 

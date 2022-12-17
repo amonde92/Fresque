@@ -101,7 +101,7 @@ public class Image {
 
     /**
      * vérifie que deux images ne soient pas égale
-     * (2 images sont considéré égale si elle leurs formes sont toutes égales)
+     * (2 images sont considéré égaux si elle leurs formes sont toutes égales)
      */
      public boolean equal(Image image) {
         if (this == image) return true;

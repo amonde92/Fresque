@@ -1,5 +1,11 @@
 package Vue;
 
+import Dessin.Dessin;
+import Forme.Cercle;
+import Forme.Ellipse;
+import Forme.Ligne;
+import Forme.Polygone;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,6 +14,9 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 public class CreateImage extends JDialog implements ItemListener, ActionListener {
+    /**
+     * création des textes et de l'affiche du panel
+     */
     JFrame frame;
     JPanel panel = new JPanel();
     JPanel currentPanel;
@@ -22,7 +31,10 @@ public class CreateImage extends JDialog implements ItemListener, ActionListener
     JDialog creer_un_dessin;
 
 
-
+    /**
+     * mise en place des texts et de l'affichage du panelh
+     * mise en place d'action Listener
+     */
     public CreateImage(JFrame frame) {
         this.frame = frame;
         creer_un_dessin = new JDialog(frame, "Créer une image");
@@ -45,7 +57,7 @@ public class CreateImage extends JDialog implements ItemListener, ActionListener
         creer_un_dessin.add(validateCreateImage,contraint);
         validateCreateImage.addActionListener(this);
 
-
+        //changement de location de la fenêtre
         creer_un_dessin.setModal(true);
         creer_un_dessin.setLocation(250,150);
         creer_un_dessin.setSize(800, 350);
@@ -60,6 +72,9 @@ public class CreateImage extends JDialog implements ItemListener, ActionListener
         this.validateCreateImage = validateCreateImage;
     }
 
+    /**
+     * rentre dans la fonction si on utilise le volet déroulant
+     */
     @Override
     public void itemStateChanged(ItemEvent e) {
         if (currentPanel != null) panel.remove(currentPanel);
@@ -80,22 +95,30 @@ public class CreateImage extends JDialog implements ItemListener, ActionListener
 
     }
 
+    /**
+     * si un bouton est appuyer on rentre dans la fonction et on execute la suite lié au bouton appuyer
+     */
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == createP.getValidation() ){
+            Polygone P = createP.getPolygone();
             this.transformation.setSelectedIndex(0);
         }
         if (e.getSource() == createE.getValidation() ){
+            Ellipse E = createE.getEllipse();
             this.transformation.setSelectedIndex(0);
         }
         if (e.getSource() == createC.getValidation() ){
+            Cercle C = createC.getCercle();
             this.transformation.setSelectedIndex(0);
         }
         if (e.getSource() == createL.getValidation() ){
+            Ligne L = createL.getLigne();
             this.transformation.setSelectedIndex(0);
         }
         if(e.getSource() == validateCreateImage){
+
             creer_un_dessin.dispose();
         }
     }

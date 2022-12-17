@@ -16,6 +16,8 @@ public class PanelMere extends JPanel implements ItemListener, ActionListener {
     PanelFresque rotation = new PanelFresque("Rotation");
     PanelFresque sym_centrale = new PanelFresque("Symétrie Centrale");
     PanelFresque sym_axiale = new PanelFresque("Symétrie Axiale");
+
+    PanelFresque translation = new PanelFresque("translation");
     JFrame frame;
 
     public PanelMere(JFrame frame) {
@@ -43,7 +45,7 @@ public class PanelMere extends JPanel implements ItemListener, ActionListener {
             case "Rotation" -> currentPanel = rotation;
             case "Symétrie Centrale" -> currentPanel = sym_centrale;
             case "Symétrie Axiale" -> currentPanel = sym_axiale;
-            //case "Translation" -> currentPanel = translation;
+            case "Translation" -> currentPanel = translation;
         }
 
         System.out.println(currentPanel);
