@@ -13,7 +13,7 @@ public class Frame extends JFrame {
         this.dessinBis = dessinBis;
         // Titre
         setTitle(a);
-        // taille : 400 pixels largeur  et 100 pixels hauteur
+        // taille : 400 pixels largeur et 100 pixels hauteur
         setSize(1250, 650);
         // Au centre
         setLocationRelativeTo(null);

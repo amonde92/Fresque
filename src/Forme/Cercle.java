@@ -7,7 +7,7 @@ public class Cercle extends Forme implements Comparable<Cercle> {
 
     /**
      * Constructeur de la class Cercle, récupére deux points, l'origine
-     * et un second point qui servirapour construire une ligne (centre et rayon)
+     * et un second point qui servira pour construire une ligne (centre et rayon)
      * @param c : Point, origine du cercle
      * @param r : Point, pour calculer le rayon du cercle
      */
@@ -103,7 +103,7 @@ public class Cercle extends Forme implements Comparable<Cercle> {
 
     }
     /**
-     *Méthode qui compare l'objet courant et l'objet donné en paramètre
+     * Méthode qui compare l'objet courant et l'objet donné en paramètre
      * @return true si les deux objets sont égaux sinon false
      */
     @Override

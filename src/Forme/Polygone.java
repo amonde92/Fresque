@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Polygone extends Forme implements Comparable<Polygone> {
-
-
-
     public void Print() {
 
         for (int i = 0; i < (Cote.size()); i++) {
@@ -15,31 +12,38 @@ public class Polygone extends Forme implements Comparable<Polygone> {
         }
     }
 
+    private ArrayList<Ligne> Cote = new ArrayList<>();
+
 
     /**
-     * variable permétant de stocké ligne que compose un polygone
-     * fonction permettant de l'instansier
+     * Constructeur de la class Polygone, récupère une liste point
+     * @param point : ArrayListe<Point> : point qui compose le polygone
      */
-    private ArrayList<Ligne> Cote = new ArrayList<>(); // stockage des ligne qui compose un polygone
-    public  Polygone (ArrayList<Point> point){instanceCote(point);} // permet de créer un polygone
-    public void instanceCote(ArrayList<Point> point) {addLigne(point);} // permet de mettre les ligne du polygone
+    public  Polygone (ArrayList<Point> point){instanceCote(point);}
 
     /**
-     * la fonction permet de créer les ligne du polygone avec les points
-     * donnés en argument.
+     * permet d'instancier le polygone la première fois
+     * @param point : ArrayListe<Point> : point qui compose le polygone
+     */
+    public void instanceCote(ArrayList<Point> point) {addLigne(point);}
+
+    /**
+     * fonction qui permet d'ajouter les points
+     * du polygone pour faire la figure
+     * @param point : Point, ce qui compose le polygone
      */
     public void addLigne(ArrayList<Point> point) {
 
-        for (int i = 0; i < (point.size()) - 1; i++) { //on balaye du 1er jusqu'à l'avant dernier
-            Cote.add(new Ligne(point.get(i),point.get(i+1)));// on ajoute les ligne créer avec les points
+        for (int i = 0; i < (point.size()) - 1; i++) {
+            Cote.add(new Ligne(point.get(i),point.get(i+1)));
         }
-        Cote.add(new Ligne(point.get(point.size()-1), point.get(0))); //on relie le dernier point avec le 1er
+        Cote.add(new Ligne(point.get(point.size()-1), point.get(0)));
     }
 
     /**
-     *fonction qui permet de retourner la valeur du périmetre du polygone
+     * Méthode qui calcul le périmètre d'un polygone selon une formule mathématique
+     * @return Le périmètre d'un polygone
      */
-
     @Override
     public double Perimetre() {
         super.Perimetre(); // évite l'erreur
@@ -52,10 +56,10 @@ public class Polygone extends Forme implements Comparable<Polygone> {
     }
 
     /**
-     *calcule de l'aire du polygone avec la méthode laçage
+     * Méthode qui calcul l'aire d'un polygone selon une formule mathématique
+     * @return l'aire d'un polygone
      */
-
-     @Override
+    @Override
     public double Aire() {
         super.Aire(); // évite l'erreur
         double aire = 0;
@@ -72,97 +76,101 @@ public class Polygone extends Forme implements Comparable<Polygone> {
 
 
     /**
-     * permet de argrandir ou de diminuer le polygone par rapport à un rapport
+     * Méthode qui réalise l'homothétie d'un polygone, la méthode homothétie est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur le polygone
+     * @see Point#homothetie(int)
+     * @param rapport : rapport selon lequel est réalisée l'homothétie
      */
 
     @Override
     public void homothetie(int rapport) {
-        super.homothetie(rapport); // évite l'erreur
-        ArrayList<Ligne> coteBis = new ArrayList<>(); // on créer un clone du polygone actuel
-        for(Ligne ligne: Cote) { // on parcours les lignes du polygone
-            ligne.homothetie(rapport); // on rentre dans la fonction homothetie des lignes
-            coteBis.add(ligne); // on ajoute les nouvelle ligne au clone
+        super.homothetie(rapport);
+        ArrayList<Ligne> coteBis = new ArrayList<>();
+        for(Ligne ligne: Cote) {
+            ligne.homothetie(rapport);
+            coteBis.add(ligne);
         }
-        setCote(coteBis); // one change les ligne du polygone originel avec celui du clone
+        setCote(coteBis);
     }
 
     /**
-     * permet de faire une translation du polygone en cour
+     * Méthode qui réalise la translation du polygone, la méthode translation est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur le polygone
+     * @see Point#translation(int[])
+     * @param vector : vecteur selon lequel est réalisée la translation
      */
-
     @Override
     public void translation(int[] vector) {
-        super.translation(vector); // évite l'erreur
-        ArrayList<Ligne> coteBis = new ArrayList<>(); // on créer un clone du polygone actuel
-        for(Ligne ligne: Cote) { // on parcours les lignes du polygone
-            ligne.translation(vector); // on rentre dans la fonction translation des lignes
-            coteBis.add(ligne); // on ajoute les nouvelle ligne au clone
+        super.translation(vector);
+        ArrayList<Ligne> coteBis = new ArrayList<>();
+        for(Ligne ligne: Cote) {
+            ligne.translation(vector);
+            coteBis.add(ligne);
         }
-        setCote(coteBis); // one change les ligne du polygone originel avec celui du clone
+        setCote(coteBis);
     }
 
     /**
-     * permet de faire une symétrie axiale du polygone en cour
+     * Méthode qui réalise la symétrie axale du polygone, la méthode symétrie_axiale est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur le polygone
+     * @see Point#symetrie_axiale()
      */
     @Override
     public void symetrie_axiale() {
-        super.symetrie_axiale(); // évite l'erreur
-        ArrayList<Ligne> coteBis = new ArrayList<>(); // on créer un clone du polygone actuel
-        for(Ligne ligne: Cote) { // on parcours les lignes du polygone
-            ligne.symetrie_axiale(); // on rentre dans la fonction symétrie axiale des lignes
-            coteBis.add(ligne); // on ajoute les nouvelle ligne au clone
+        super.symetrie_axiale();
+        ArrayList<Ligne> coteBis = new ArrayList<>();
+        for(Ligne ligne: Cote) {
+            ligne.symetrie_axiale();
+            coteBis.add(ligne);
         }
-        setCote(coteBis); // one change les ligne du polygone originel avec celui du clone
-    }
+        setCote(coteBis);     }
 
     /**
-     * permet de faire une symétrie centrale du polygone en cour
+     * Méthode qui réalise la symétrie centrale du polygone, la méthode symétrie_centrale est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur le polygone
+     * @see Point#symetrie_centrale()
      */
 
     @Override
     public void symetrie_centrale() {
-        super.symetrie_centrale(); // évite l'erreur
-        ArrayList<Ligne> coteBis = new ArrayList<>(); // on créer un clone du polygone actuel
-        for(Ligne ligne: Cote) { // on parcours les lignes du polygone
-            ligne.symetrie_centrale(); // on rentre dans la fonction symétrie centrale des lignes
-            coteBis.add(ligne); // on ajoute les nouvelle ligne au clone
+        super.symetrie_centrale();
+        ArrayList<Ligne> coteBis = new ArrayList<>();
+        for(Ligne ligne: Cote) {
+            ligne.symetrie_centrale();
+            coteBis.add(ligne);
         }
-        setCote(coteBis); // one change les ligne du polygone originel avec celui du clone
+        setCote(coteBis);
     }
 
 
     /**
-     * permet de faire une rotation du polygone en cour
+     * Méthode qui réalise la rotation du polygone, la méthode rotation est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur le polygone
+     * @see Point#symetrie_axiale()
      */
     @Override
     public void rotation() {
-        super.rotation(); // évite l'erreur
-        ArrayList<Ligne> coteBis = new ArrayList<>(); // on créer un clone du polygone actuel
-        for(Ligne ligne: Cote) { // on parcours les lignes du polygone
-            ligne.rotation(); // on rentre dans la fonction rotation des lignes
-            coteBis.add(ligne); // on ajoute les nouvelle ligne au clone
+        super.rotation();
+        ArrayList<Ligne> coteBis = new ArrayList<>();
+        for(Ligne ligne: Cote) {
+            ligne.rotation();
+            coteBis.add(ligne);
         }
-        setCote(coteBis); // one change les ligne du polygone originel avec celui du clone
+        setCote(coteBis);
     }
-/**
- * permet de récupérer la variable Cote du polygone
- */
+
     public ArrayList<Ligne> getCote() {
         return Cote;
     }
-
-    /**
-     *permet de changer la variable Cote du polygone avecx un autre
-     */
     public void setCote(ArrayList<Ligne> cote) {
         Cote = cote;
     }
 
 
     /**
-     * permet de vérifier si le polygone que l'on veux rajouté est déjà présent ou pas
+     * Méthode qui compare l'objet courant et l'objet donné en paramètre
+     * @return true si les deux objets sont égaux sinon false
      */
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true; // on regarde si l'objet est identique à celle du polygone
@@ -173,16 +181,20 @@ public class Polygone extends Forme implements Comparable<Polygone> {
     }
 
     /**
-     * affiche le éléments du polygone pour le débeugage
+     * Méthode toString
+     * @return informations clés du Point
      */
-
     @Override
     public String toString() {
         return "Polygone{" +
                 "Cote=" + Cote +
                 '}';
     }
-
+    /**
+     * Méthode qui permet de vérifier qu'un doublon n'est pas présent lors de l'ajout dans la HashSet d'image
+     * @param o the object to be compared.
+     * @return 0 s'il y a déja un polygone présent dans la HashSet d'image
+     */
     @Override
     public int compareTo(Polygone o) {
         return 0;

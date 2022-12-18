@@ -2,23 +2,12 @@ package Forme;
 
 public class Ellipse extends Forme implements Comparable<Ellipse>{
 
-    /**
-     * variables élémentaire de l'éllipse
-     */
-
     private Point center;
     private Point abscisse;
     private Point ordonne;
     private Ligne rayonA;
     private Ligne rayonB;
     final float pi= (float)Math.PI;
-
-
-
-
-    /**
-     * setteur et getteur des variables élémentaire de l'éllipse
-     */
 
     public void setAbscisse(Point abscisse) {this.abscisse = abscisse;}
     public Point getAbscisse() {return abscisse;}
@@ -32,7 +21,12 @@ public class Ellipse extends Forme implements Comparable<Ellipse>{
     public Ligne getRayonB() {return rayonB;}
 
     /**
-     * initilisateur de l'éllipse
+     * Constructeur de la class Ellipse, récupère trois points, l'origine,
+     * un second point qui servira pour construire une ligne (centre et distance la plus courte du centre)
+     * et un troisième point qui servira pour construire une ligne (centre et distance la plus longue du centre)
+     * @param center : Point, origine du cercle
+     * @param abscisse : Point, pour calculer le rayon court du cercle
+     * @param ordonne : Point, pour calculer le rayon long du cercle
      */
     public Ellipse(Point center, Point abscisse, Point ordonne) {
         this.center = center;
@@ -42,7 +36,10 @@ public class Ellipse extends Forme implements Comparable<Ellipse>{
         rayonB = new Ligne(center,ordonne);
     }
     /**
-     * aggrantisement ou réduction de l'éllipse par rapport à un rapport
+     * Méthode qui réalise l'homothétie de l'ellipse, la méthode homothétie est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur l'ellipse
+     * @see Point#homothetie(int)
+     * @param rapport : rapport selon lequel est réalisée l'homothétie
      */
     @Override
     public void homothetie(int rapport) {
@@ -52,7 +49,10 @@ public class Ellipse extends Forme implements Comparable<Ellipse>{
         ordonne.homothetie(rapport);
     }
     /**
-     * fait une translation de l'éllipse par rapport à un vecteur
+     * Méthode qui réalise la translation de l'ellipse, la méthode translation est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur l'ellipse
+     * @see Point#translation(int[])
+     * @param vector : vecteur selon lequel est réalisée la translation
      */
     @Override
     public void translation(int[] vector) {
@@ -62,7 +62,9 @@ public class Ellipse extends Forme implements Comparable<Ellipse>{
         ordonne.translation(vector);
     }
     /**
-     * fait une symétrie centrale sur l'éllipse
+     * Méthode qui réalise la symétrie centrale de l'ellipse, la méthode symétrie_centrale est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur l'ellipse
+     * @see Point#symetrie_centrale()
      */
     @Override
     public void symetrie_centrale() {
@@ -73,7 +75,9 @@ public class Ellipse extends Forme implements Comparable<Ellipse>{
     }
 
     /**
-     * fait une symétrie axiale sur l'éllipse
+     * Méthode qui réalise la symétrie axale de l'ellipse, la méthode symétrie_axiale est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur l'ellipse
+     * @see Point#symetrie_axiale()
      */
     @Override
     public void symetrie_axiale() {
@@ -83,7 +87,9 @@ public class Ellipse extends Forme implements Comparable<Ellipse>{
         ordonne.symetrie_axiale();
     }
     /**
-     * fait une rotation sur l'éllipse
+     * Méthode qui réalise la rotation de l'ellipse, la méthode rotation est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur l'ellipse
+     * @see Point#symetrie_axiale()
      */
     @Override
     public void rotation() {
@@ -93,7 +99,8 @@ public class Ellipse extends Forme implements Comparable<Ellipse>{
     }
 
     /**
-     * calcule le périmetre de l'éllipse
+     * Méthode qui calcul le périmètre d'une ellipse selon une formule mathématique
+     * @return Le périmètre de l'ellipse
      */
     @Override
     public double Perimetre() {
@@ -102,7 +109,8 @@ public class Ellipse extends Forme implements Comparable<Ellipse>{
     }
 
     /**
-     * calcule l'aire de l'éllipse
+     * Méthode qui calcul l'aire de l'ellipse selon une formule mathématique
+     * @return l'aire du cercle
      */
     @Override
     public double Aire() {
@@ -111,7 +119,9 @@ public class Ellipse extends Forme implements Comparable<Ellipse>{
     }
 
     /**
-     * vérifie si on a déjà ou non le cercle créé
+     * Méthode qui compare l'objet courant et l'objet donné en paramètre
+     * @param obj : Objet, l'objet que l'on veut comparer
+     * @return true si les deux objets sont égaux sinon false
      */
     @Override
     public boolean equals(Object obj) {
@@ -126,7 +136,8 @@ public class Ellipse extends Forme implements Comparable<Ellipse>{
         return false;
     }
     /**
-     * affiche les variables élémentaire de l'éllipse
+     * Méthode toString
+     * @return informations clés du Point
      */
     @Override
     public String toString() {
@@ -139,7 +150,11 @@ public class Ellipse extends Forme implements Comparable<Ellipse>{
                 ", pi=" + pi +
                 '}';
     }
-
+    /**
+     * Méthode qui permet de vérifier qu'un doublon n'est pas présent lors de l'ajout dans la HashSet d'image
+     * @param ellipse the object to be compared.
+     * @return 0 s'il y a déja un cercle présent dans la HashSet d'image
+     */
     @Override
     public int compareTo(Ellipse ellipse) {
         return 0;
