@@ -1,22 +1,24 @@
 package Forme;
+
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+
+/**
+ * Classe qui répresente un Pointt
+ */
 public class Point extends Forme{
-    /**
-     * variable élémentaire du point
-     */
     private int x;
     private int y;
 
     /**
-     *initialisateur du point
+     * Constructeur de la class Point
+     * @param x : abcisse du point
+     * @param y : ordonnée du point
      */
     public Point(int x, int y) {
-        this.x = x+618;
-        this.y = y+283;
+        this.x = x;
+        this.y = y;
     }
-
-    /**
-     * setteur et getteur des variables élémentaire du point
-     */
     public void setX(int x) {this.x = x;}
 
     public int getX() {return x;}
@@ -26,45 +28,51 @@ public class Point extends Forme{
     public int getY() {return y;}
 
     /**
-     * rotation des variables élémentaire du point
+     * Réalise la rotation d'un point par à 90° dans le sens anti-horaire rapport à l'origine
      */
     public void rotation (){
-        int ValTemp=x;
-        x=-y+618;
-        y=ValTemp;
+        int temp=x;
+        x=-y;
+        y=temp;
     }
     /**
-     * symétrie axiale des variable élémentaire du point
+     * Méthode qui réalise la symétrie axiale d'un point par rapport à l'axe des ordonnées
      */
-    public void symetrie_axiale(){x=-x+618;}
+    public void symetrie_axiale(){x=-x;}
+
     /**
-     * symétrie centrale des variable élémentaire du point
+     * Méthode qui réalise symétrie centrale du point par rapport à l'origine
      */
     @Override
     public void symetrie_centrale() {
         super.symetrie_centrale();
-        x=-x+618;
-        y=-y+283;
+        x=-x;
+        y=-y;
     }
     /**
-     * translation des variable élémentaire du point par rapport à un vecteur
+     * Méthode qui réalise la translation du point par rapport au vecteur donnée.
+     * x-> x+vector[0] et y->y+vecteur[1]
+     * @param vector : vecteur selon lequel est faite la translation
      */
     public void translation(int [] vector){
         x=x+vector[0];
         y=y+vector[1];
     }
     /**
-     * augmentation ou réduction des variable élémentaire du point par rapport à un rapport
+     * Méthode qui réalise l'homothétie du point selon le rapport saisie
+     * x->x*rapport et y->y*rapport
+     * @param rapport : rapport selon lequel est faite l'homothétie
      */
     @Override
     public void homothetie(int rapport) {
         super.homothetie(rapport);
-        x*=rapport-618;
-        y*=rapport-283;
+        x*=rapport;
+        y*=rapport;
     }
 
     /**
-     * vérifie si on a déjà ou non le point créé
+     *Méthode qui compare l'objet courant et l'objet donné en paramètre
+     * @return true si les deux objets sont égaux sinon false
      */
     @Override
     public boolean equals(Object obj) {
@@ -77,7 +85,8 @@ public class Point extends Forme{
     }
 
     /**
-     * affiche les variables élémentaire du point
+     * Méthode toString
+     * @return informations clés du Point
      */
     @Override
     public String toString() {

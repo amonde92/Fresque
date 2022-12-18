@@ -1,44 +1,40 @@
 package Vue;
 
-import Forme.Cercle;
-import Forme.Ellipse;
+import Dessin.Dessin;
+import Forme.*;
 import Forme.Point;
+import Image.Image;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.geom.Ellipse2D;
 
-public class PanelFresque extends JPanel{
-    Cercle cercle = new Cercle(new Point(0,0),new Point(100,100));
-    //Ellipse e =new Ellipse(new Point(0,100),new Point(500,80),new Point(70,150));
+public class PanelFresque extends JPanel implements ItemListener {
+    PanelDessin panelDessin;
+    Dessin dessin;
+    Dessin dessinBis;
+    Dessin d = new Dessin();
+
+    PanelDessin panD;
+    public PanelFresque (Dessin dessin, Dessin dessinBis ){
+        this.dessin = dessin;
+        this.dessinBis = dessinBis;
+        GridLayout gridLayout = new GridLayout(1, 2, 5, 10);
+        setLayout(gridLayout);
+        panelDessin = new PanelDessin(dessin);
+        panelDessin.setSize(500,500);
+        add (panelDessin);
+        panelDessin.setVisible(true);
 
 
-    Point ctr = new Point(0, 0);
-    Point a = new Point(50, 10);
-    Point b = new Point(30, 15);
-    Ellipse e = new Ellipse(ctr, a, b);
-    JLabel titre;
+        panD = new PanelDessin(d);
+        add(panD);
+        panD.setVisible(true);
 
-    public PanelFresque (String t){
-        titre = new JLabel(t);
-        add(titre);
     }
 
-
-
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        Graphics2D g2 = (Graphics2D) g;
-
-        g2.setPaint(Color.RED);
-        g2.setStroke(new BasicStroke(5.0f));
-        g2.draw(new Ellipse2D.Double(e.getCenter().getX(), e.getCenter().getY(),e.getRayonA().Distance(), e.getRayonB().Distance()));
-
-        //e.translation(new int[]{100,200});
-        //e.
-        //g2.draw(new Ellipse2D.Double(e.getCenter().getX(), e.getCenter().getY(),e.getRayonA().Distance(), e.getRayonB().Distance()));
-        }
 
     public void getCenter() {
         // Obtenir les dimensions du panel
@@ -54,4 +50,36 @@ public class PanelFresque extends JPanel{
         System.out.println(x + "aa "+y);
     }
 
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        if(e.getItem()!=null){
+            System.out.println(e.getItem().toString());
+        }
+        if (panD != null) this.remove(panD);
+
+        switch (e.getItem().toString()) {
+            case "Transformation" -> {
+                panD = new PanelDessin(d);
+            }
+            case "Copie" -> {
+                Dessin copie = dessin.copie();
+                panD = new PanelDessin(copie);
+            }
+            case "Homothétie" -> {
+                dessinBis.homothetie(2);
+                panD = new PanelDessin(dessinBis);
+            }
+            case "Translation" -> {
+                dessinBis.translation(new int[]{10, 10});
+                panD = new PanelDessin(dessinBis);
+            }
+        }
+
+        System.out.println(panD);
+        if (panD != null) {
+            this.add(panD);
+            panD.setVisible(true);
+        }
+        this.updateUI();
+    }
 }
