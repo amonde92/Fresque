@@ -11,6 +11,9 @@ import Forme.Ligne;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * PanelImage qui va dessiner les formes selons les formes présentes dans les images,
+ */
 public class PanelImage extends JPanel {
     Image image;
 

@@ -9,7 +9,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-public class PanelMereBis extends JPanel implements ItemListener, ActionListener {
+/**
+ * Panel Mère, panel où seront ajoutés les panels fils
+ */
+public class PanelMereBis extends JPanel implements ActionListener {
     PanelOption panelOption;
     PanelFresque panelFresque;
     Dessin dessin;
@@ -26,10 +29,11 @@ public class PanelMereBis extends JPanel implements ItemListener, ActionListener
 
     }
 
-    public void itemStateChanged(ItemEvent e) {
-        System.out.println("changement");
-    }
-
+    /**
+     * Ecouteur des boutons "Aire" et "Périmètre" qui va permettre
+     * d'afficher l'aire et le perimètre du dessin
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 

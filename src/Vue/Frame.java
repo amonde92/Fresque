@@ -5,6 +5,9 @@ import Dessin.Dessin;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Fenêtre de la vue de la fresque,
+ * c'est à l'intérieur que seront instancier et ajouté les différents panels de la vue */
 public class Frame extends JFrame {
     Dessin dessin;
     Dessin dessinBis;

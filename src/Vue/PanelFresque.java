@@ -11,6 +11,10 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.geom.Ellipse2D;
 
+/**
+ * PanelFresque qui va servir à afficher d'un côté la fresque,
+ * et de l'autre les transformations réalisées
+ */
 public class PanelFresque extends JPanel implements ItemListener {
     PanelDessin panelDessin;
     Dessin dessin;

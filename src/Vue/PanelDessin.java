@@ -8,6 +8,11 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
+/**
+ * Panel qui affiche les dessins, va se diviser en partie égale selon le nombre de dessins
+ * Va par la suite créer un PanelImage par dessin
+ * @see PanelImage
+ */
 public class PanelDessin extends JPanel {
     Dessin dessin;
     //PanelImage panelImage;

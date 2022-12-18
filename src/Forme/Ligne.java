@@ -1,27 +1,32 @@
 package Forme;
 
 public class Ligne extends Forme implements Comparable<Ligne>{
-    /**
-     * variables élémentaire de la ligne
-     */
     private Point  a;
     private Point b;
 
     /**
-     * initialisateur des points de la ligne
+     * Constructeur de la class Ligne
+     * @param a : premier Point
+     * @param b : second Point
+     * @see Point
      */
     public Ligne(Point a, Point b){
         this.a = a;
         this.b = b;
     }
 
+    public Point getA() {return a;}
+    public void setA(Point a) {this.a = a;}
+    public Point getB() {return b;}
+    public void setB(Point b) {this.b = b;}
+
     /**
-     * calcule la distance entre les 2 points qui compose la ligne
+     * Méthode qui calcule la distance de la Ligne
+     * @return la distance de la ligne
      */
     public double Distance(){
         try{
             return Math.sqrt(Math.pow((this.b.getX()-this.a.getX()),2)+Math.pow(this.b.getY()-this.a.getY(),2));
-            //return Integer.parseInt(String.valueOf(Math.sqrt(Math.pow((this.b.getX()-this.a.getX()),2)+Math.pow(this.b.getY()-this.a.getY(),2))));
         }
         catch (ArithmeticException e){
             System.out.println();
@@ -31,7 +36,10 @@ public class Ligne extends Forme implements Comparable<Ligne>{
     }
 
     /**
-     * augmentation ou réduction de la ligne par rapport à un rapport
+     * Méthode qui réalise l'homothétie de la ligne, la méthode homothétie est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur le cercle
+     * @see Point#homothetie(int)
+     * @param rapport : rapport selon lequel est réalisée l'homothétie
      */
     @Override
     public void homothetie(int rapport) {
@@ -41,7 +49,10 @@ public class Ligne extends Forme implements Comparable<Ligne>{
     }
 
     /**
-     * translation des points de la ligne par rapport à un vecteur
+     * Méthode qui réalise la translation de la ligne, la méthode translation est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur le cercle
+     * @see Point#translation(int[])
+     * @param vector : vecteur selon lequel est réalisée la translation
      */
     @Override
     public void translation(int[] vector) {
@@ -51,7 +62,9 @@ public class Ligne extends Forme implements Comparable<Ligne>{
     }
 
     /**
-     * rotation des points de la ligne par rapport à un vecteur
+     * Méthode qui réalise la rotation de la ligne, la méthode rotation est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur le cercle
+     * @see Point#symetrie_axiale()
      */
     @Override
     public void rotation() {
@@ -61,7 +74,9 @@ public class Ligne extends Forme implements Comparable<Ligne>{
     }
 
     /**
-     * symétrie central des points de la ligne par rapport à un vecteur
+     * Méthode qui réalise la symétrie centrale de la ligne, la méthode symétrie_centrale est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur le cercle
+     * @see Point#symetrie_centrale()
      */
     @Override
     public void symetrie_centrale() {
@@ -71,7 +86,9 @@ public class Ligne extends Forme implements Comparable<Ligne>{
     }
 
     /**
-     * symétrie axiale des points de la ligne par rapport à un vecteur
+     * Méthode qui réalise la symétrie axiale du cercle, la méthode symétrie_axiale est appelé sur les points,
+     * c'est ce qui permet d'ensuite la réaliser sur le cercle
+     * @see Point#symetrie_axiale()
      */
     @Override
     public void symetrie_axiale() {
@@ -81,16 +98,8 @@ public class Ligne extends Forme implements Comparable<Ligne>{
     }
 
     /**
-     * récupération des élément que compose la ligne
-     */
-    public Point getA() {return a;}
-    public void setA(Point a) {this.a = a;}
-    public Point getB() {return b;}
-    public void setB(Point b) {this.b = b;}
-
-
-    /**
-     * vérifie si on a déjà ou non la ligne créé
+     *Méthode qui compare l'objet courant et l'objet donné en paramètre
+     * @return true si les deux objets sont égaux sinon false
      */
     @Override
     public boolean equals(Object obj) {
@@ -105,7 +114,8 @@ public class Ligne extends Forme implements Comparable<Ligne>{
     }
 
     /**
-     * affiche les variables élémentaire de la ligne
+     * Méthode toString
+     * @return informations clés de la Ligne
      */
     @Override
     public String toString() {
@@ -115,6 +125,11 @@ public class Ligne extends Forme implements Comparable<Ligne>{
                 '}';
     }
 
+    /**
+     * Méthode qui permet de vérifier qu'un doublon n'est pas présent lors de l'ajout dans la HashSet d'image
+     * @param o the object to be compared.
+     * @return 0 s'il y a déja un cercle présent dans la HashSet d'image
+     */
     @Override
     public int compareTo(Ligne o) {
         return 0;

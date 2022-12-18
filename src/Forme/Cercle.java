@@ -68,7 +68,7 @@ public class Cercle extends Forme implements Comparable<Cercle> {
 
     }
     /**
-     * Méthode qui réalise la symétrie axale du cercle, la méthode symétrie_axiale est appelé sur les points,
+     * Méthode qui réalise la symétrie axiale du cercle, la méthode symétrie_axiale est appelé sur les points,
      * c'est ce qui permet d'ensuite la réaliser sur le cercle
      * @see Point#symetrie_axiale()
      */
@@ -117,7 +117,7 @@ public class Cercle extends Forme implements Comparable<Cercle> {
     }
     /**
      * Méthode toString
-     * @return informations clés du Point
+     * @return informations clés du Cercle
      */
     @Override
     public String toString() {

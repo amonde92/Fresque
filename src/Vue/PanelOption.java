@@ -5,6 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * PanelOption qui va afficher les options possibles pour l'utilisateur
+ */
 public class PanelOption extends JPanel  {
     //JButton create = new JButton ("Créer une Image");
     String[] transfo = {"Transformation","Copie","Homothétie","Translation"};
